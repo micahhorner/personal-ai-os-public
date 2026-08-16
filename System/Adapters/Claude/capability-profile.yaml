@@ -1,0 +1,16 @@
+# See System/Runtime Profiles/claude-code.yaml for the ACTIVE certified profile.
+# This file documents the Claude adapter's assumptions about the runtime family.
+id: adapter-claude-capability-notes
+runtime: claude
+assumptions:
+  direct_file_access: true      # current transport; NOT an architectural dependency
+  structured_output: reliable
+  long_context: large but finite — compile context, never load the vault
+  hosted: true                  # `ai_use: local-only` and `classification: restricted` are excluded
+                                # outright. `private` is NOT: the shipped profile sets
+                                # `allowed_privacy_classifications: [public, internal, private]` and
+                                # `may_process_private: true` (DEC-025), so private content does reach
+                                # this runtime out of the box. The active profile
+                                # (System/Runtime Profiles/claude-code.yaml) is what governs; this
+                                # comment used to claim the opposite, and overstating a privacy
+                                # guarantee is the worst direction to be wrong in. (Privacy §2)

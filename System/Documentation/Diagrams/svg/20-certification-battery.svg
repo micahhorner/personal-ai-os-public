@@ -1,0 +1,11 @@
+<svg width="100%" viewBox="0 0 680 326" role="img" xmlns="http://www.w3.org/2000/svg">
+<title>Personal AI OS — certification battery</title>
+<desc>Test fixtures certify each autonomy level from L0 to L4. A failed fixture caps the runtime at the highest fully-passed level; results and dates go in the runtime profile and the human flips the active profile.</desc>
+<text class="th" x="40" y="28">Autonomy is granted by passing fixtures — a failure caps you at the last level cleared</text>
+<g class="c-red"><rect x="40" y="48" width="600" height="44" rx="9" stroke-width="0.5"/><text class="th" x="58" y="74" text-anchor="start" style="font-size:16px">L4</text><text class="ts" x="104" y="74" text-anchor="start">all lower levels + 13 vault-import + supervised migration on a copy</text></g>
+<g class="c-amber"><rect x="40" y="98" width="600" height="44" rx="9" stroke-width="0.5"/><text class="th" x="58" y="124" text-anchor="start" style="font-size:16px">L3</text><text class="ts" x="104" y="124" text-anchor="start">02 · 03 · 07 · 08 · 11 · 12  (guided construction)</text></g>
+<g class="c-teal"><rect x="40" y="148" width="600" height="44" rx="9" stroke-width="0.5"/><text class="th" x="58" y="174" text-anchor="start" style="font-size:16px">L2</text><text class="ts" x="104" y="174" text-anchor="start">05 low-risk-auto · 06 high-risk-blocked · 09 switch-off · 10 rebuild</text></g>
+<g class="c-blue"><rect x="40" y="198" width="600" height="44" rx="9" stroke-width="0.5"/><text class="th" x="58" y="224" text-anchor="start" style="font-size:16px">L1</text><text class="ts" x="104" y="224" text-anchor="start">01 duplicate-proposal (as proposal) · drafts land correctly in Inbox</text></g>
+<g class="c-gray"><rect x="40" y="248" width="600" height="44" rx="9" stroke-width="0.5"/><text class="th" x="58" y="274" text-anchor="start" style="font-size:16px">L0</text><text class="ts" x="104" y="274" text-anchor="start">04 privacy-exclusion · 09 read-refusal · honest abstention on retrieval</text></g>
+<text class="ts" x="40" y="312" text-anchor="start">A failed fixture caps the runtime at the highest fully-passed level. Results + date go in the runtime profile; the human flips the active profile.</text>
+</svg>

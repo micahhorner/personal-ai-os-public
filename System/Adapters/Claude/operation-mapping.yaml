@@ -1,0 +1,21 @@
+# Claude adapter — how vault.* operations map onto Claude's native abilities.
+# The contract (System/Operations/operations.yaml) is canonical; this is transport.
+id: adapter-claude-operation-mapping
+runtime: claude
+schema_version: 1.1.0
+mappings:
+  vault.search:            {via: "python3 System/Scripts/aios.py search --query <q> --domain <work|personal|shared>  (deterministic privacy filter, DEC-013); native grep permitted for System/ rule files only"}
+  vault.read:              {via: "python3 System/Scripts/aios.py read --id <id> --domain <work|personal|shared> for content notes (deterministic privacy filter); native read permitted for System/ rule files"}
+  vault.inspect:           {via: native read of frontmatter + generated reverse views}
+  vault.find_canonical:    {via: procedure in System/Capabilities/retrieve-context/SKILL.md}
+  vault.preflight:         {via: procedure in System/Capabilities/safe-write/SKILL.md}
+  vault.propose_change:    {via: draft into 00 Inbox or present diff in conversation}
+  vault.apply_change:      {via: native file edit AFTER preflight, per change-control tier}
+  vault.checkpoint:        {via: "python3 System/Scripts/aios.py checkpoint -m <label> [--zip | --zip-only] [--paths <p>...] [--strict]"}
+  vault.rollback:          {via: "python3 System/Scripts/aios.py rollback <ref> --confirm", approval: human}
+  vault.validate:          {via: "python3 System/Scripts/aios.py validate"}
+  vault.health_check:      {via: "python3 System/Scripts/aios.py health"}
+  vault.scaffold_component: {via: "python3 System/Scripts/aios.py scaffold"}
+  vault.register_component: {via: "python3 System/Scripts/aios.py scaffold --register"}
+  vault.migrate:           {via: "python3 System/Scripts/aios.py migrate", approval: human}
+  vault.rebuild_generated: {via: "python3 System/Scripts/aios.py generate"}

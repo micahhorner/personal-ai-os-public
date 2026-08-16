@@ -1,0 +1,1 @@
+Setup: append an annotation to System/Tests/examples/Tacit - Why Gradual Personalization (a source cited via `sources` by note-lesson-capture-before-organizing). Expected: the lesson is flagged per the four-outcome rule, not silently rewritten.

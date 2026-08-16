@@ -1,0 +1,44 @@
+# Schema for note class `working`. Enforced by aios.py validate.
+id: schema-working
+schema: working
+schema_version: 1.0.1
+applies_to: {type: working}
+directories: ['10 Projects']   # plus '00 Inbox' (pre-filing) and '90 Archive'.
+                               # ENFORCED asymmetrically (DEC-096 as amended per DEC-082):
+                               # `working` outside the project layer is an ERROR (new class, no
+                               # legacy corpus — never a schema escape hatch for knowledge);
+                               # `type: note` inside the project layer is a rolled-up ADVISORY
+                               # warning (lived-in vaults never go red on the user's own notes).
+required: [id, type, subtype, created, updated, summary, status]
+fields:
+  subtype: {vocab: working_subtypes}
+  status: {vocab: status}
+  aliases: {type: list}
+  tags: {type: list}
+  related: {type: id-list}
+  sources: {type: id-list}
+  derived_from: {type: id-list}
+  depends_on: {type: id-list}
+  supports: {type: id-list}
+  contradicts: {type: id-list}
+  entities: {type: id-list}
+  supersedes: {type: id}
+  superseded_by: {type: id}
+  confidence: {vocab: confidence}
+  verification: {vocab: verification}
+  review_due: {type: date}
+  classification: {vocab: classification}
+  domain: {vocab: domain}
+  ai_use: {vocab: ai_use}
+  approval: {vocab: approval}
+  file_class: {}
+  schema_version: {}
+notes: >
+  Project working material — plans, logs, captures, drafts, scratch — the layer where the
+  user actually thinks. Checks are deliberately light (a real id, real dates, a summary, an
+  honest status) so typing a scratch file costs less than leaving it untyped. Excluded from
+  default knowledge retrieval (`aios search`); visible to project-scoped queries
+  (`aios search --project <name> --domain <work|personal|shared>`),
+  `aios read --id <id> --domain <work|personal|shared>`, and the Steward — working material
+  informs status, never canon. Durable lessons are promoted to knowledge notes through the
+  normal routes; nothing here is auto-promoted or auto-typed.

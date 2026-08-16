@@ -1,0 +1,37 @@
+# Schema for note class `source`. Enforced by aios.py validate.
+id: schema-source
+schema: source
+schema_version: 1.1.0
+applies_to: {type: source}
+directories: ['30 Sources']   # plus '00 Inbox' (pre-promotion) and '90 Archive'
+required: [id, type, created, updated, summary, subtype]
+fields:
+  subtype: {vocab: source_subtypes}
+  captured_at: {type: date}
+  provided_by: {}
+  knowledge_type: {vocab: knowledge_type}
+  original_location: {}
+  status: {vocab: status}
+  aliases: {type: list}
+  tags: {type: list}
+  related: {type: id-list}
+  sources: {type: id-list}
+  derived_from: {type: id-list}
+  depends_on: {type: id-list}
+  supports: {type: id-list}
+  contradicts: {type: id-list}
+  entities: {type: id-list}
+  supersedes: {type: id}
+  superseded_by: {type: id}
+  confidence: {vocab: confidence}
+  verification: {vocab: verification}
+  review_due: {type: date}
+  classification: {vocab: classification}
+  domain: {vocab: domain}
+  ai_use: {vocab: ai_use}
+  sync: {vocab: sync}       # DEC-092 storage boundary; absence = allowed
+  approval: {vocab: approval}
+  file_class: {}
+  schema_version: {}
+notes: >
+  Immutable evidence. Never edited after capture; superseded or annotated instead. Tacit subtype requires provided_by and knowledge_type.

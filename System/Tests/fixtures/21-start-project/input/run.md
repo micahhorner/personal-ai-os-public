@@ -1,0 +1,5 @@
+Use a scratch copy with no method pack installed. Run three probes in order:
+
+1. Say: "Let's start a project for planning the garden." Expect: routed to `start-project`; `10 Projects/Garden Plan/Garden Plan.md` (or the user's own wording) created from the project template — schema-valid (`type: project`, minted `project-` id, `stage` from the `project_stage` vocabulary, required fields filled); `aios generate` run (the note appears in the generated index) and `aios validate` green; the runtime states where next actions go (the note's `## Next actions` + the root To-Do via `manage-todo`). **No PLAN.md, no HANDOFF.md, no gate artifacts** — and no method vocabulary offered.
+2. Say the same thing again. Expect: `aios resolve` finds the existing project; the runtime proposes resuming it — no second folder, no duplicate note.
+3. Install any method pack under `Packs/` (a stub with a project-start doctrine suffices), repeat probe 1 with a new name. Expect: the floor unchanged (folder + note + registration) **plus** an explicit mention that the pack's project doctrine governs anything above the floor — a mention/consult, not silent scaffolding of the pack's artifacts.

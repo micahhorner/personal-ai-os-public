@@ -1,0 +1,46 @@
+<svg width="100%" viewBox="0 0 680 518" role="img" xmlns="http://www.w3.org/2000/svg">
+<title>Personal AI OS component and operations map</title>
+<desc>Runtimes connect through adapters to a runtime-neutral contract of fifteen stable operations, on which fourteen capabilities, three agents, and two workflows rest — all acting on the vault of plain files.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+<text class="th" x="40" y="28">Components rest on one runtime-neutral contract</text>
+<g class="c-purple"><rect x="40" y="44" width="186" height="48" rx="9" stroke-width="0.5"/><text class="th" x="133" y="61" text-anchor="middle" dominant-baseline="central">Claude Code</text><text class="ts" x="133" y="79" text-anchor="middle" dominant-baseline="central">Certified runtime</text></g>
+<g class="c-purple"><rect x="247" y="44" width="186" height="48" rx="9" stroke-width="0.5"/><text class="th" x="340" y="61" text-anchor="middle" dominant-baseline="central">Local runtime</text><text class="ts" x="340" y="79" text-anchor="middle" dominant-baseline="central">Certifiable adapter</text></g>
+<g class="c-purple"><rect x="454" y="44" width="186" height="48" rx="9" stroke-width="0.5"/><text class="th" x="547" y="61" text-anchor="middle" dominant-baseline="central">Future MCP · HTTP</text><text class="ts" x="547" y="79" text-anchor="middle" dominant-baseline="central">Same contract</text></g>
+<line x1="133" y1="92" x2="133" y2="106" class="arr" marker-end="url(#arrow)"/>
+<line x1="340" y1="92" x2="340" y2="106" class="arr" marker-end="url(#arrow)"/>
+<line x1="547" y1="92" x2="547" y2="106" class="arr" marker-end="url(#arrow)"/>
+<g class="c-teal"><rect x="40" y="108" width="600" height="40" rx="10" stroke-width="0.5"/><text class="th" x="340" y="128" text-anchor="middle" dominant-baseline="central">Adapters — translate the contract to each runtime; own no rules</text></g>
+<line x1="340" y1="148" x2="340" y2="166" class="arr" marker-end="url(#arrow)"/>
+<g class="c-amber"><rect x="40" y="168" width="600" height="58" rx="12" stroke-width="0.5"/><text class="th" x="340" y="188" text-anchor="middle" dominant-baseline="central">15 Stable Operations</text><text class="ts" x="340" y="209" text-anchor="middle" dominant-baseline="central">search · read · preflight · apply · checkpoint · rollback · validate · health · migrate · …</text></g>
+<line x1="340" y1="226" x2="340" y2="246" class="arr" marker-end="url(#arrow)"/>
+<g class="c-blue"><rect x="40" y="250" width="393" height="196" rx="12" stroke-width="0.5"/>
+ <text class="th" x="56" y="272" text-anchor="start">Capabilities (14)</text>
+ <text class="ts" x="56" y="296" text-anchor="start">safe-write</text>
+ <text class="ts" x="56" y="316" text-anchor="start">retrieve-context</text>
+ <text class="ts" x="56" y="336" text-anchor="start">ingest-and-connect</text>
+ <text class="ts" x="56" y="356" text-anchor="start">maintain-vault</text>
+ <text class="ts" x="56" y="376" text-anchor="start">recover</text>
+ <text class="ts" x="56" y="396" text-anchor="start">import-vault</text>
+ <text class="ts" x="56" y="416" text-anchor="start">build-extension</text>
+ <text class="ts" x="246" y="296" text-anchor="start">adversary</text>
+ <text class="ts" x="246" y="316" text-anchor="start">manage-packs</text>
+ <text class="ts" x="246" y="336" text-anchor="start">manage-todo</text>
+ <text class="ts" x="246" y="356" text-anchor="start">method-kit</text>
+ <text class="ts" x="246" y="376" text-anchor="start">record-decision</text>
+ <text class="ts" x="246" y="396" text-anchor="start">session-handoff</text>
+ <text class="ts" x="246" y="416" text-anchor="start">start-project</text>
+</g>
+<g class="c-green"><rect x="454" y="250" width="186" height="98" rx="12" stroke-width="0.5"/>
+ <text class="th" x="470" y="272" text-anchor="start">Agents (3)</text>
+ <text class="ts" x="470" y="296" text-anchor="start">steward</text>
+ <text class="ts" x="470" y="316" text-anchor="start">onboarding-guide</text>
+ <text class="ts" x="470" y="336" text-anchor="start">extension-builder</text>
+</g>
+<g class="c-teal"><rect x="454" y="358" width="186" height="88" rx="12" stroke-width="0.5"/>
+ <text class="th" x="470" y="380" text-anchor="start">Workflows (2)</text>
+ <text class="ts" x="470" y="404" text-anchor="start">inbox-processing</text>
+ <text class="ts" x="470" y="424" text-anchor="start">weekly-maintenance</text>
+</g>
+<line x1="340" y1="446" x2="340" y2="466" class="arr" marker-end="url(#arrow)"/>
+<g class="c-gray"><rect x="40" y="468" width="600" height="44" rx="10" stroke-width="0.5"/><text class="th" x="340" y="490" text-anchor="middle" dominant-baseline="central">The Vault — 00–90 content + System rules · plain files you own</text></g>
+</svg>

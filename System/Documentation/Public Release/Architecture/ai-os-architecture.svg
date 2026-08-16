@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">Personal AI OS architecture, version 1.64.2</title>
+  <desc id="desc">A replaceable AI runtime reads a human-owned folder through written rules and procedures. Filtered retrieval and supported writers enforce tested controls, while direct native file access is explicitly not a sandbox.</desc>
+  <defs>
+    <style>
+      .bg{fill:#0b1210}.panel{fill:#13201c;stroke:#34544c;stroke-width:2}.panel2{fill:#17241f;stroke:#83bcb1;stroke-width:2}.warm{fill:#2c2418;stroke:#e3ad60;stroke-width:2}.warn{fill:#2c1d1b;stroke:#d78378;stroke-width:2}.t{font-family:Inter,Arial,sans-serif;fill:#e8eeeb}.m{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;fill:#9eb0aa}.h1{font-size:54px;font-weight:750}.h2{font-size:26px;font-weight:700}.body{font-size:21px}.small{font-size:17px}.mint{fill:#a7d7ce}.amber{fill:#f0c27c}.coral{fill:#ed9a90}.line{stroke:#66877e;stroke-width:3;fill:none}.dash{stroke-dasharray:10 10}.pill{rx:28}
+    </style>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L9,3 L0,6 Z" fill="#66877e"/></marker>
+  </defs>
+  <rect class="bg" width="1600" height="1000"/>
+  <text class="t h1" x="100" y="92">The AI can change. The folder stays yours.</text>
+  <text class="m body" x="102" y="132">PERSONAL AI OS · v1.64.2</text>
+
+  <rect class="panel" x="100" y="190" width="360" height="150" rx="20"/>
+  <text class="t h2" x="135" y="238">Replaceable runtime</text>
+  <text class="t body" x="135" y="278">Claude Code and Codex</text>
+  <text class="m small" x="135" y="310">profiles ship · uncertified</text>
+
+  <path class="line" marker-end="url(#arrow)" d="M460 265 H610"/>
+
+  <rect class="panel2" x="640" y="170" width="860" height="190" rx="24"/>
+  <text class="mint h2" x="685" y="218">The written operating layer</text>
+  <text class="t body" x="685" y="260">Standing rules → deterministic routing → one of 15 active capabilities</text>
+  <text class="t body" x="685" y="300">Supported writes: safe paths · proportional review · validation · risky-path recovery</text>
+  <text class="m small" x="685" y="334">14 core + 1 open-pack capability · 36 commands · 3 agents · 2 workflows</text>
+
+  <path class="line" marker-end="url(#arrow)" d="M1070 360 V445"/>
+
+  <rect class="warm" x="100" y="445" width="1400" height="310" rx="26"/>
+  <text class="amber h2" x="145" y="495">The folder you own</text>
+  <text class="t body" x="145" y="535">Plain Markdown and YAML · readable without an AI · no Personal AI OS account</text>
+
+  <rect class="panel" x="145" y="575" width="285" height="125" rx="16"/>
+  <text class="t h2" x="175" y="618">Knowledge</text><text class="m small" x="175" y="655">notes · decisions</text>
+  <rect class="panel" x="455" y="575" width="285" height="125" rx="16"/>
+  <text class="t h2" x="485" y="618">Your setup</text><text class="m small" x="485" y="655">preferences · privacy</text>
+  <rect class="panel" x="765" y="575" width="285" height="125" rx="16"/>
+  <text class="t h2" x="795" y="618">Evidence</text><text class="m small" x="795" y="655">journal · recovery</text>
+  <rect class="panel" x="1075" y="575" width="380" height="125" rx="16"/>
+  <text class="t h2" x="1105" y="618">Open knowledge layer</text><text class="m small" x="1105" y="655">OKF v0.2 · locally checkable</text>
+
+  <rect class="warn" x="100" y="810" width="1400" height="115" rx="20"/>
+  <text class="coral h2" x="140" y="852">Honest boundary</text>
+  <text class="t body" x="140" y="890">Filtered retrieval and supported writers enforce tested rules. Direct native file access is not an OS sandbox.</text>
+
+  <text class="m small" x="100" y="965">Target-bound machine evidence is distributed with the v1.64.2 GitHub release assets.</text>
+</svg>
