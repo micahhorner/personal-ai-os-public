@@ -1,0 +1,28 @@
+# Controlled vocabularies — the only authoritative list of allowed values.
+# Referenced by schemas; enforced by `aios.py validate`.
+# Additions are additive migrations (see Versioning and Migration).
+id: schema-vocabularies
+schema_version: 1.2.0
+
+status: [draft, active, review-due, stale, superseded, archived]
+confidence: [high, medium, low, unknown]
+verification: [verified, corroborated, reported, inferred, unverified]
+classification: [public, internal, private, restricted]   # DEC-008
+domain: [work, personal, shared]                           # DEC-008
+ai_use: [allowed, local-only, prohibited]                  # DEC-008
+sync: [allowed, local-only]                                # DEC-092 — storage boundary: may this file leave the machine via sync/cloud backup? Absence = allowed (DEC-026); orthogonal to classification (sensitivity) and ai_use (AI routing)
+approval: [none, pending, approved, rejected]
+
+note_subtypes: [concept, finding, claim, question, lesson]
+source_subtypes: [document, web, meeting, interview, tacit, conversation]
+entity_subtypes: [person, organization, place, product]
+project_stage: [planned, active, on-hold, completed, abandoned]
+working_subtypes: [plan, log, capture, draft, scratch]        # DEC-096
+
+# For tacit sources only
+knowledge_type: [firsthand-recollection, interpretation, historical-context,
+                 political-context, process-knowledge, expert-judgment,
+                 unverified-report, personal-opinion, known-exception]
+
+component_types: [capability, agent, script, template, schema, workflow, adapter, operation]
+component_status: [draft, active, deprecated, retired]

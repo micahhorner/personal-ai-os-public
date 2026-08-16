@@ -1,0 +1,22 @@
+id: pack-obsidian-bases
+name: "Obsidian Bases Authoring"
+version: 1.0.1
+kind: capability
+summary: "Teach an agent to author valid Obsidian .base files (views, filters, formulas) — vendored verbatim from kepano/obsidian-skills under MIT, wrapped as an AI OS pack."
+license: MIT
+source: "https://github.com/kepano/obsidian-skills"
+
+depends_on:
+  core_primitives: []
+  min_system_version: "1.14.0"
+  runtime: any
+
+components: {capabilities: [capabilities/author-bases.md], agents: [], workflows: []}
+tests:      [tests/fixture-author-bases.md]
+resources:  {references: [resources/kepano/SKILL.md, resources/kepano/references/FUNCTIONS_REFERENCE.md, resources/kepano/LICENSE]}
+
+gates:
+  - "A .base file is a VIEW, never canon — if it vanished, nothing is lost (plugin-policy §1)."
+  - "Display-only: never writes frontmatter (plugin-policy §3)."
+  - "Map view requires the Maps community plugin — out of scope, do not author map views."
+  - "Third-party content, vendored verbatim under MIT (Steph Ango). Not AI OS canon."

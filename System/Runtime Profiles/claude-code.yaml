@@ -1,0 +1,20 @@
+# ACTIVE runtime profile (manifest: runtime.active_profile)
+# Shipped product defaults (DEC-025): works out of the box — read-write with
+# approval gates. Certifications are earned per instance and never ship;
+# run the battery in System/Tests/Certification Battery.md to record yours.
+id: runtime-claude-code
+runtime_type: hosted
+provider: anthropic
+model: claude (Claude Code)
+hosted: true
+context_capacity: large
+structured_output_reliability: high
+tool_calling: native
+file_write_reliability: high
+allowed_privacy_classifications: [public, internal, private]   # DEC-013
+may_process_private: true    # product default (DEC-025); filtered retrieval excludes ai_use: local-only, while native-file mode remains compliance rather than physical confinement
+autonomy_level: L2        # uncertified default (DEC-026): everyday validated safe writes work out of the box;
+                          # L3+ (guided multi-file work) is earned by passing the certification battery
+certifications: {}        # earned per instance, never shipped (audit-2 H-04/H-06)
+last_tested: null
+fallback_runtime: human-review-only

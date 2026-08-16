@@ -1,0 +1,15 @@
+<svg width="100%" viewBox="0 0 680 288" role="img" xmlns="http://www.w3.org/2000/svg">
+<title>Personal AI OS — recovery and backup</title>
+<desc>The recover capability moves through stabilize, diagnose, restore, and verify, with two restore paths: regenerate generated state, or roll back content after human approval. Every checkpoint is a git commit or zip snapshot.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+<text class="th" x="40" y="28">When something goes wrong — stabilize, diagnose, restore, verify</text>
+<g class="c-red"><rect x="40" y="44" width="132" height="58" rx="10" stroke-width="0.5"/><text class="th" x="106" y="68" text-anchor="middle" dominant-baseline="central">Stabilize</text><text class="ts" x="106" y="86" text-anchor="middle" dominant-baseline="central">kill switch, stop</text></g>
+<g class="c-blue"><rect x="196" y="44" width="132" height="58" rx="10" stroke-width="0.5"/><text class="th" x="262" y="68" text-anchor="middle" dominant-baseline="central">Diagnose</text><text class="ts" x="262" y="86" text-anchor="middle" dominant-baseline="central">health · journal</text></g>
+<g class="c-amber"><rect x="352" y="44" width="132" height="58" rx="10" stroke-width="0.5"/><text class="th" x="418" y="68" text-anchor="middle" dominant-baseline="central">Restore</text><text class="ts" x="418" y="86" text-anchor="middle" dominant-baseline="central">regen or rollback</text></g>
+<g class="c-green"><rect x="508" y="44" width="132" height="58" rx="10" stroke-width="0.5"/><text class="th" x="574" y="68" text-anchor="middle" dominant-baseline="central">Verify &amp; journal</text><text class="ts" x="574" y="86" text-anchor="middle" dominant-baseline="central">green + prevention</text></g>
+<line x1="172" y1="73" x2="196" y2="73" class="arr" marker-end="url(#arrow)"/>
+<line x1="328" y1="73" x2="352" y2="73" class="arr" marker-end="url(#arrow)"/>
+<line x1="484" y1="73" x2="508" y2="73" class="arr" marker-end="url(#arrow)"/>
+<g class="c-amber"><rect x="40" y="120" width="600" height="86" rx="12" stroke-width="0.5"/><text class="th" x="56" y="142" text-anchor="start">Two restore paths</text><text class="ts" x="56" y="164" text-anchor="start">Generated-state weirdness → aios generate is the whole fix.</text><text class="ts" x="56" y="182" text-anchor="start">Content damage → propose target → human approves → aios rollback &lt;ref&gt; --confirm.</text><text class="ts" x="56" y="200" text-anchor="start">(rollback works even with the kill switch off — the human's --confirm is the authorization)</text></g>
+<g class="c-green"><rect x="40" y="218" width="600" height="42" rx="10" stroke-width="0.5"/><text class="ts" x="340" y="239" text-anchor="middle" dominant-baseline="central">Backups — every checkpoint = a git commit or zip snapshot; --zip keeps a human-restorable snapshot at all times.</text></g>
+</svg>

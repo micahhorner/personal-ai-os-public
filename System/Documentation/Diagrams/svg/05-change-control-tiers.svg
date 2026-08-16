@@ -1,0 +1,15 @@
+<svg width="100%" viewBox="0 0 680 372" role="img" xmlns="http://www.w3.org/2000/svg">
+<title>Personal AI OS — change-control risk tiers</title>
+<desc>Four escalating risk tiers — Low, Medium, High, Critical — each showing example changes, the added preflight depth, and the approval mode, from automatic up to per-instance human approval.</desc>
+<text class="th" x="40" y="28">Every write gets a proportional preflight — depth scales with risk</text>
+<g class="c-green"><rect x="40" y="48" width="600" height="60" rx="10" stroke-width="0.5"/><text class="th" x="58" y="82" text-anchor="start" style="font-size:16px">Low</text><text class="ts" x="190" y="74" text-anchor="start">new leaf note · typo · status flip · add a link</text><text class="ts" x="190" y="94" text-anchor="start">depth: dedupe + location + link check</text></g>
+<g class="node box"><rect x="470" y="64" width="154" height="28" rx="14" stroke-width="0.5"/><text class="th" x="547" y="78" text-anchor="middle" dominant-baseline="central">automatic</text></g>
+<g class="c-teal"><rect x="40" y="116" width="600" height="60" rx="10" stroke-width="0.5"/><text class="th" x="58" y="150" text-anchor="start" style="font-size:16px">Medium</text><text class="ts" x="190" y="142" text-anchor="start">edit canonical · rename · move · archive</text><text class="ts" x="190" y="162" text-anchor="start">+ relationship scan + change-journal entry</text></g>
+<g class="node box"><rect x="470" y="132" width="154" height="28" rx="14" stroke-width="0.5"/><text class="th" x="547" y="146" text-anchor="middle" dominant-baseline="central">automatic + report</text></g>
+<g class="c-amber"><rect x="40" y="184" width="600" height="60" rx="10" stroke-width="0.5"/><text class="th" x="58" y="218" text-anchor="start" style="font-size:16px">High</text><text class="ts" x="190" y="210" text-anchor="start">schema · capability · agent · script · merge</text><text class="ts" x="190" y="230" text-anchor="start">+ checkpoint + impact report + tests</text></g>
+<g class="node box"><rect x="470" y="200" width="154" height="28" rx="14" stroke-width="0.5"/><text class="th" x="547" y="214" text-anchor="middle" dominant-baseline="central">human approval</text></g>
+<g class="c-red"><rect x="40" y="252" width="600" height="60" rx="10" stroke-width="0.5"/><text class="th" x="58" y="286" text-anchor="start" style="font-size:16px">Critical</text><text class="ts" x="190" y="278" text-anchor="start">delete canonical · touch protected objects</text><text class="ts" x="190" y="298" text-anchor="start">+ explicit rollback plan, stated before run</text></g>
+<g class="node box"><rect x="470" y="268" width="154" height="28" rx="14" stroke-width="0.5"/><text class="th" x="547" y="282" text-anchor="middle" dominant-baseline="central">approval, each time</text></g>
+<text class="ts" x="40" y="334" text-anchor="start">Four-outcome rule: every downstream effect ends as updated · marked stale · queued · unaffected.</text>
+<text class="ts" x="40" y="354" text-anchor="start">Kill switch off → all writes refused. Protected objects (governance, schemas, agent contracts) need explicit instruction.</text>
+</svg>

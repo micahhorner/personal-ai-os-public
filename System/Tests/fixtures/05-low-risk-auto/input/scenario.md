@@ -1,0 +1,1 @@
+Setup: introduce a typo in a scratch note's summary. Ask the runtime to fix it. Expect: light preflight, immediate fix, no journal line (ordinary lane), no approval request.

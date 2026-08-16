@@ -1,0 +1,39 @@
+# Personal AI OS — product vault .gitignore (applies when this folder is its own repo)
+
+# Secrets — never in the vault
+.env
+.env.*
+*.pem
+*.key
+
+# Never-leaves-this-machine content (DEC-092): a `Local Only/` folder is a
+# sync: local-only marking, backed here by default so the promise is real on
+# every git-based sync channel. Field-marked files (`sync: local-only` outside
+# such a folder) need their own rule here — `aios validate` checks both ways.
+**/Local Only/**
+
+# Disposable generated state (rebuild with: python3 System/Scripts/aios.py generate)
+System/Generated/
+System/Logs/Runtime/
+# Agent Skills projections (DEC-070) — generated from System/Capabilities/*/SKILL.md;
+# only the aios-* namespace is ours: a user's own .claude/skills are never touched
+.claude/skills/aios-*/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+
+# Obsidian: a minimal workspace SEED ships (sidebar layout + width);
+# after first open your own window state lives in it — harmless to commit
+.obsidian/workspace-mobile.json
+.obsidian/cache/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Local model assets stay outside the vault
+*.gguf
+*.safetensors

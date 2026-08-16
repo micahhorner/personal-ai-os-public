@@ -1,0 +1,17 @@
+# Shipped Codex profile. This is a conservative uncertified default; runtime
+# certification is instance-earned and is never inferred from source tests.
+id: runtime-codex
+runtime_type: hosted
+provider: openai
+model: codex
+hosted: true
+context_capacity: large
+structured_output_reliability: untested
+tool_calling: native
+file_write_reliability: untested
+allowed_privacy_classifications: [public, internal, private]
+may_process_private: true
+autonomy_level: L2
+certifications: {}
+last_tested: null
+fallback_runtime: human-review-only

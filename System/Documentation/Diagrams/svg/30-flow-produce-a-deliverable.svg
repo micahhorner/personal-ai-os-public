@@ -1,0 +1,15 @@
+<svg width="100%" viewBox="0 0 680 250" role="img">
+<title>AI OS flow — Produce a Deliverable (user walkthrough)</title>
+<desc>The produce flow from the user's view: you ask it to draft from what's known; it retrieves the relevant records, drafts from them, and files the output with lineage; you get a deliverable in Outputs linked to its sources, awaiting your approval.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+<text class="th" x="40" y="26">Produce a deliverable (Flow 6)</text>
+<text class="ts" x="130" y="52" text-anchor="middle">YOU DO</text>
+<text class="ts" x="340" y="52" text-anchor="middle">BEHIND THE SCENES</text>
+<text class="ts" x="550" y="52" text-anchor="middle">YOU GET</text>
+<g class="c-blue"><rect x="40" y="60" width="180" height="154" rx="12" stroke-width="0.5"/><text class="th" x="56" y="88" text-anchor="start">Say:</text><text class="th" x="56" y="106" text-anchor="start"></text><text class="th" x="56" y="124" text-anchor="start">"Draft the kickoff memo</text><text class="th" x="56" y="142" text-anchor="start">from what we know</text><text class="th" x="56" y="160" text-anchor="start">about Atlas."</text></g>
+<line x1="220" y1="137" x2="250" y2="137" class="arr" marker-end="url(#arrow)"/>
+<g class="c-amber"><rect x="250" y="60" width="180" height="154" rx="12" stroke-width="0.5"/><text class="ts" x="266" y="88" text-anchor="start">Retrieves the relevant</text><text class="ts" x="266" y="106" text-anchor="start">records (privacy-filtered)</text><text class="ts" x="266" y="124" text-anchor="start">Drafts from them — grounded,</text><text class="ts" x="266" y="142" text-anchor="start">not invented</text><text class="ts" x="266" y="160" text-anchor="start">Preserves lineage back to</text><text class="ts" x="266" y="178" text-anchor="start">every source</text></g>
+<line x1="430" y1="137" x2="460" y2="137" class="arr" marker-end="url(#arrow)"/>
+<g class="c-green"><rect x="460" y="60" width="180" height="154" rx="12" stroke-width="0.5"/><text class="ts" x="476" y="88" text-anchor="start">A deliverable in 40 Outputs/,</text><text class="ts" x="476" y="106" text-anchor="start">linked to what it used</text><text class="ts" x="476" y="124" text-anchor="start">Left as draft until YOU</text><text class="ts" x="476" y="142" text-anchor="start">approve it for outside use</text></g>
+<text class="ts" x="40" y="238" text-anchor="start">Every output keeps its trail back to the evidence, and nothing goes out until you mark it approved.</text>
+</svg>

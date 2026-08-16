@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Personal AI OS v1.64.1 release proof card</title>
+  <desc id="desc">A social graphic listing the exact final release qualification results and the honest certification and sandbox limitations.</desc>
+  <rect width="1600" height="900" fill="#0b1210"/>
+  <g font-family="Inter,Arial,sans-serif" fill="#e8eeeb">
+    <text x="110" y="110" font-size="28" fill="#9eb0aa" letter-spacing="5">PERSONAL AI OS · v1.64.1</text>
+    <text x="110" y="205" font-size="66" font-weight="750">Release claims you can inspect.</text>
+    <text x="110" y="260" font-size="27" fill="#a7d7ce">Exact tag. Exact evidence. No certification theater.</text>
+  </g>
+  <g font-family="Inter,Arial,sans-serif">
+    <rect x="110" y="340" width="310" height="210" rx="24" fill="#13201c" stroke="#83bcb1" stroke-width="2"/>
+    <text x="150" y="425" font-size="58" font-weight="760" fill="#a7d7ce">1,156</text><text x="150" y="475" font-size="24" fill="#e8eeeb">strict tests passed</text><text x="150" y="515" font-size="17" fill="#9eb0aa">zero warning leaks</text>
+    <rect x="455" y="340" width="310" height="210" rx="24" fill="#13201c" stroke="#83bcb1" stroke-width="2"/>
+    <text x="495" y="425" font-size="58" font-weight="760" fill="#a7d7ce">20 / 20</text><text x="495" y="475" font-size="24" fill="#e8eeeb">official histories</text><text x="495" y="515" font-size="17" fill="#9eb0aa">upgrade + recovery</text>
+    <rect x="800" y="340" width="310" height="210" rx="24" fill="#2c2418" stroke="#e3ad60" stroke-width="2"/>
+    <text x="840" y="425" font-size="58" font-weight="760" fill="#f0c27c">22 / 22</text><text x="840" y="475" font-size="24" fill="#e8eeeb">required fault cases</text><text x="840" y="515" font-size="17" fill="#b9aa90">interruption + rollback</text>
+    <rect x="1145" y="340" width="345" height="210" rx="24" fill="#2c2418" stroke="#e3ad60" stroke-width="2"/>
+    <text x="1185" y="425" font-size="48" font-weight="760" fill="#f0c27c">Git + ZIP</text><text x="1185" y="475" font-size="24" fill="#e8eeeb">recovery passed</text><text x="1185" y="515" font-size="17" fill="#b9aa90">product-issued commands</text>
+  </g>
+  <rect x="110" y="625" width="1380" height="145" rx="22" fill="#2c1d1b" stroke="#d78378" stroke-width="2"/>
+  <g font-family="Inter,Arial,sans-serif"><text x="150" y="680" font-size="26" font-weight="700" fill="#ed9a90">What this does not claim</text><text x="150" y="725" font-size="22" fill="#e8eeeb">No independent human test · no formal Claude/Codex certification · direct-file mode is not an OS sandbox</text></g>
+  <text x="110" y="840" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="18" fill="#9eb0aa">commit fc39fc55002a3822a201bda3af0bab63d49a03a2 · tag v1.64.1 · final release gate PASS</text>
+</svg>

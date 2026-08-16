@@ -1,0 +1,77 @@
+name: vault-ci
+on:
+  # CATCH-ALL, deliberately, replacing an allow-list that was wrong.
+  #
+  # A previous prefix allow-list omitted active branch families while retaining
+  # unused ones. So ordinary development branches could receive NO push CI, and the
+  # failure was SILENT: an unlisted branch shows no red X, it shows nothing,
+  # which at a glance is indistinguishable from a green run.
+  #
+  # An allow-list of prefixes is a hand-maintained census of a set that changes
+  # whenever someone types a branch name — DEC-105's finding, in YAML. Listing
+  # adding today's observed prefixes would close only today's gap and re-arm the
+  # same trap for the next prefix. A catch-all cannot drift, and the two
+  # errors are not symmetric: a run nobody needed costs a minute of compute, a
+  # branch nobody checked costs a release.
+  push:
+    branches: ["**"]
+    tags: ["v*"]          # release tags additionally run the macOS job below
+  pull_request: {branches: [main]}
+  workflow_dispatch:    # run the macOS job on demand
+
+# The product gate reads repository contents only. Keep the default token at the
+# smallest permission the workflow needs, including after the repository becomes
+# public.
+permissions:
+  contents: read
+
+# A branch pushed three times in a minute does not need three full matrices; only
+# the newest push has an answer anyone will act on. Push and PR runs land in
+# different groups by construction (`github.ref` is `refs/heads/…` vs
+# `refs/pull/N/merge`), so a PR keeps its own independent verdict and cancelling
+# superseded pushes can never cancel the check a merge depends on.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    strategy:
+      matrix:                       # proves the declared python>=3.9 floor (macOS moved to the tag-gated job below)
+        include:
+          - {os: ubuntu-latest, python: "3.9"}
+          - {os: ubuntu-latest, python: "3.11"}
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "${{ matrix.python }}"}
+      - run: pip install "PyYAML>=6.0,<7"
+      - name: Product gate
+        run: AIOS_PYTHON=python3 bash System/Scripts/gate.sh
+
+  # macOS runners bill at 10x minutes, and the push filter above is a catch-all:
+  # every branch push was paying that multiplier to re-prove on each commit what
+  # Linux already proved. The README's macOS-operation claim is worth keeping, so
+  # this does not drop the coverage — it moves it to the moments that decide
+  # something:
+  #
+  #   pull_request  — the gate into main. A macOS-specific regression cannot reach
+  #                   main undetected, because nothing reaches main except through
+  #                   a PR, and every PR runs this job.
+  #   v* tags       — the release itself, so a shipped version is always proven.
+  #   dispatch      — on demand, for checking a branch before it opens a PR.
+  #
+  # What is deliberately NOT covered: intermediate pushes to a feature branch.
+  # Those are re-runs of the same answer the branch's PR will produce anyway, and
+  # they are where the 10x multiplier was actually being spent.
+  macos:
+    if: github.event_name == 'pull_request' || startsWith(github.ref, 'refs/tags/v') || github.event_name == 'workflow_dispatch'
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - run: pip install "PyYAML>=6.0,<7"
+      - name: Product gate
+        run: AIOS_PYTHON=python3 bash System/Scripts/gate.sh
