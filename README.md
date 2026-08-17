@@ -91,7 +91,7 @@ The tradeoff is intentional structure. This system asks the user and the AI to f
 
 ## Honest boundaries
 
-- **It is not a security sandbox.** A runtime with direct filesystem access is technically able to read or alter anything its OS account can reach. Privacy switches, protected paths, and the off switch are rules that a compliant runtime must obey.
+- **It is not a security sandbox.** Direct-file mode is not an OS sandbox: a runtime with filesystem access is technically able to read or alter anything its OS account can reach. Privacy switches, protected paths, and the off switch are compliance rules that the runtime must obey. The current product does not ship a mechanically isolated brokered mode.
 - **It does not make model judgment infallible.** It adds structure, provenance, deterministic checks, and recovery mechanics; it cannot guarantee that an AI's interpretation is correct.
 - **It is not certified for every AI tool.** Claude Code and Codex profiles ship at the conservative uncertified L2 default. Higher autonomy and runtime certification must be earned in an individual installation.
 - **It does not coordinate every possible editor.** Transaction and rollback guarantees apply to the declared commands and write sets that implement them, not arbitrary simultaneous edits made outside those workflows.
