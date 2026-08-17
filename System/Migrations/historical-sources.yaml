@@ -1,0 +1,66 @@
+schema_version: 2
+provenance:
+  matrix: W1-full-candidate-matrix.yaml
+  matrix_target_commit: 4e54eefdec1f1ca7e0096e2d2407917ad863f3b7
+  excluded_official_gaps: [1.45.0, 1.61.0]
+  non_main_anomaly_count: 3
+target:
+  version: 1.64.6
+  official_1_64_root_surfaces:
+    - {path: CONTRIBUTING.md, payload: payloads/CONTRIBUTING.payload, payload_ref: 995ba2a77b4671b82f71f21b22f878ec061b358f, payload_sha256: 252f04b22e87f8cc1a1abe87e3c6f273bef25792a2304d07fadfcacb2b190f5a}
+    - {path: SECURITY.md, payload: payloads/SECURITY.payload, payload_ref: b077747fa4e8d2677a8716e7cdb58da1c6b2a6e4, payload_sha256: 9cdbd2fe8fcf97dced9ca3f5d1d1bce8cf487eead7806d3903a8a5c50dee7953}
+  about_surfaces:
+    - {path: 00 Inbox/_ABOUT.md, payload: payloads/00-inbox-about.payload, payload_ref: 4de485a23882020dda26bc736228c6289e2fbf7b, payload_sha256: 4861850c0a9f587f7f7c5b5d6b44792a736d3f295920f606f133770d68d54396}
+    - {path: 10 Projects/_ABOUT.md, payload: payloads/10-projects-about.payload, payload_ref: 4de485a23882020dda26bc736228c6289e2fbf7b, payload_sha256: ce7d04de4a25e78ef5e017532a43fa0f6aac61da8442a08052049290e465d30f}
+    - {path: 20 Knowledge/_ABOUT.md, payload: payloads/20-knowledge-about.payload, payload_ref: 4de485a23882020dda26bc736228c6289e2fbf7b, payload_sha256: 2ea6d65e5452053f2e6ac76c878d8e75342759d5a8fe5de7014782cbef05c422}
+    - {path: 30 Sources/_ABOUT.md, payload: payloads/30-sources-about.payload, payload_ref: 4de485a23882020dda26bc736228c6289e2fbf7b, payload_sha256: 3835a7d590fedf7048846a098142bccfe84db4b4284b15d69f95bc2c7d5f33c0}
+    - {path: 40 Outputs/_ABOUT.md, payload: payloads/40-outputs-about.payload, payload_ref: 4de485a23882020dda26bc736228c6289e2fbf7b, payload_sha256: 3bf7fd52e6aff9216d0208227932c5cde3a6a2ef6a2ca6e7985da1f8d0660ccf}
+    - {path: 80 User/_ABOUT.md, payload: payloads/80-user-about.payload, payload_ref: 4de485a23882020dda26bc736228c6289e2fbf7b, payload_sha256: 72305b2a3f020f10942a70750bfefa8c0894b795e74eea50c4081267fe00568e}
+    - {path: 90 Archive/_ABOUT.md, payload: payloads/90-archive-about.payload, payload_ref: 4de485a23882020dda26bc736228c6289e2fbf7b, payload_sha256: e594a9b0229b0876371b89a42956b1f0bf918d54295c758a315713ce79a53d65}
+    - {path: Decisions/_ABOUT.md, payload: payloads/decisions-about.payload, payload_ref: 4de485a23882020dda26bc736228c6289e2fbf7b, payload_sha256: 6da9f2179603cb7f70008214d494f85418b1161a71902a8a87abac0c39c46c76}
+  license:
+    payload_ref: 3d53bdb687ab5880f6f1d73682dd3482d25e897e
+    path: LICENSE.md
+    legacy_sha256: e5bb369acb43cb5c66c1c1b97cbc45586d78cbe18adba33f9c3ae78e0940d50a
+    payload_sha256: 56fad99676a39687067146891cdcc88e068bf364bc91531b97aefd904be903c5
+  evidence_status: release-ref-pinned
+official_sources:
+  - {version: 1.43.0, commit: 61708b7c02254880c369d051d7f77934391ddbc5, source_identity: e6d80baf28a230a607f023557fa08a9d3591aeb82f1185c8c8287f0da1efdc77, old_about_sha256: d8b07af69cbc32cfd9bd58adc88a8c25b16cf5781ea1b10f8d06a2ac0da2e15e, old_license_sha256: e5bb369acb43cb5c66c1c1b97cbc45586d78cbe18adba33f9c3ae78e0940d50a}
+  - {version: 1.44.0, commit: a3d3724a9197ff0e76be0f22c37cc4aa4e7b2236, source_identity: bfc838ed4316a4aa5fb29d9cf2c2868b8e4c28f6f9aebd4a8891d8d85de9670b, old_about_sha256: 26e4b4ae578c2eb84a8c4917a0ffb8458c1cea8ddafc84cd3f987659adbb55da, old_license_sha256: e5bb369acb43cb5c66c1c1b97cbc45586d78cbe18adba33f9c3ae78e0940d50a}
+  - {version: 1.46.0, commit: 5db64efe50cd67e5bd4f0944d908a656ebb572e6, source_identity: f3576ec4e4500387cdca96d8cd1f7bc21f7074ba674fa942fca592ae90048f4a, old_about_sha256: 4b62825792b1f11e5e785a05f3a2a60a8791da71224420608d3c52f2721f07ce, old_license_sha256: e5bb369acb43cb5c66c1c1b97cbc45586d78cbe18adba33f9c3ae78e0940d50a}
+  - {version: 1.47.0, commit: 1bf09fc1d3a35886a6a5d1c2fe75905d04e8852c, source_identity: 36de9e9b4a351b2154fd96ea5148d87b9b9e4fc89673754bf35eb370be01244b, old_about_sha256: 22f84d416d8a425f17bf28afcd97d75c1c632efef7238e47dd0f2696049d833f, old_license_sha256: e5bb369acb43cb5c66c1c1b97cbc45586d78cbe18adba33f9c3ae78e0940d50a}
+  - {version: 1.48.0, commit: c6a3772c2629c4609d9ab297de4a0c14d00a2c26, source_identity: 80906c7ef15303edca8b801f832c333c3fad21bb0fd6a10dd0b6e3b8ebac0b38, old_about_sha256: 2ab2980b29313d4cfda76ec14aa733d2da0bd1832839b2b5390c9a924189bf26, old_license_sha256: e5bb369acb43cb5c66c1c1b97cbc45586d78cbe18adba33f9c3ae78e0940d50a}
+  - {version: 1.49.0, commit: 601574e1192b0519328a0bd6484a38052a5a06b1, source_identity: 39146780e8a9f738d050b80ec9b8b8fa3ce40b4e6700039874ddbd285495193f, old_about_sha256: 096f82a8258ff8940c74f09251e6db646a865f357008da1679e738205782a3a7, old_license_sha256: e5bb369acb43cb5c66c1c1b97cbc45586d78cbe18adba33f9c3ae78e0940d50a}
+  - {version: 1.50.0, commit: f274ef83e87e667be6f8ef8b0db23aabd1a861bd, source_identity: bc751dbf0c2ce55596b963d48473d1857b08723b4225a10fe6dd18a3fa1b19fa, old_about_sha256: 1f265a97970d8571f7773a862e8ae722523bedc6b0f8303f3b3d4ebfb8a87a46, old_license_sha256: e5bb369acb43cb5c66c1c1b97cbc45586d78cbe18adba33f9c3ae78e0940d50a}
+  - {version: 1.51.0, commit: dd96167219c544b7cc32ceeda44e2ac621c364f2, source_identity: 5896751dd014adf675327eaadc7686668bec14f5f27ccdb50e87d192d0b1aa2e, old_about_sha256: 4dee90832956fab3620f9ff17d3e33275bfc7a8143c8897c33412b5ce5069d15, old_license_sha256: e5bb369acb43cb5c66c1c1b97cbc45586d78cbe18adba33f9c3ae78e0940d50a}
+  - {version: 1.52.0, commit: 243c4ea0e967fc90cee1db897276637d5c185dbd, source_identity: 0d88693c226f41f70c7cca9894336c6116c5813efe4ee0a6e29b5e8a9e772851, old_about_sha256: 8a898e82cf9ab65c81e1aeeec97b6bda372df86adffbdcb6d2d0ae061a62954f, old_license_sha256: e5bb369acb43cb5c66c1c1b97cbc45586d78cbe18adba33f9c3ae78e0940d50a}
+  - {version: 1.53.0, commit: 9ae9d1cb4d393b07e8ccbb54a19f6cd507d8e67c, source_identity: d687e1bde6969dfb551609f453bbc337095cd08d9400dacc16c037d9375d402d, old_about_sha256: 8a898e82cf9ab65c81e1aeeec97b6bda372df86adffbdcb6d2d0ae061a62954f, old_license_sha256: e5bb369acb43cb5c66c1c1b97cbc45586d78cbe18adba33f9c3ae78e0940d50a}
+  - {version: 1.54.0, commit: cd0f75dd9fb53364c3deb765aa3d20dde6999f65, source_identity: fd61cdcaf297613ae51cf436c998923e205c73f4f9db5eaf531360dee930bf26, old_about_sha256: 42f493d7a9e40955d5fd65b8841c9597c00c06f83ce72f71e4208d6d82e2f941, old_license_sha256: e5bb369acb43cb5c66c1c1b97cbc45586d78cbe18adba33f9c3ae78e0940d50a}
+  - {version: 1.55.0, commit: 53c69f8442405f07723c42a158c25460591063c7, source_identity: 409426813c73c695ee443d9dba4e04beab45b564f258ee31ca1742441ed72219, old_about_sha256: 40dec8b7bd68a341eefdf44d7f7d4e84e632b8f20aa5c145da1fcb2c57a34130, old_license_sha256: e5bb369acb43cb5c66c1c1b97cbc45586d78cbe18adba33f9c3ae78e0940d50a}
+  - {version: 1.56.0, commit: 34e8af40417bbcbe098a9fe3dbf7f64ac100c142, source_identity: 5a22ba07b0f1658d0b8fcdfb11ddfb46981670ca1323f15140603df1563072a1, old_about_sha256: 04c1fd45c1403f8946a9e152ca6919cc4dcbc94aa208aff2a6383abbb9be5c8f, old_license_sha256: e5bb369acb43cb5c66c1c1b97cbc45586d78cbe18adba33f9c3ae78e0940d50a}
+  - {version: 1.57.0, commit: b19892d13affb51ac54ba5f38c4a6082ff602a83, source_identity: 3bc5870db36698a683bdda5fdfda6b02c5c37a44caaefb25dda4f9aa1a23387f, old_about_sha256: 9850dad2fcaaccfe783a7ce0164f2405781db21294606063815b9125574bc651, old_license_sha256: e5bb369acb43cb5c66c1c1b97cbc45586d78cbe18adba33f9c3ae78e0940d50a}
+  - {version: 1.58.0, commit: 5f539f27ea6f260cbb6ae8e39b59ac062b88801e, source_identity: 21bd353cb7e58932d5811fdb2f043cdbeaa85b1c451055f3b3cce1b2580f972a, old_about_sha256: efba81df3868c0be323a04c8ea36c784e5ff1c913ec0700a922f7cfb9de59f7c, old_license_sha256: e5bb369acb43cb5c66c1c1b97cbc45586d78cbe18adba33f9c3ae78e0940d50a}
+  - {version: 1.59.0, commit: f2149b74e82fe15ac98f6edba10cdfdc1750595b, source_identity: 69417446ef848419c072eea86c716b7571ac19775d7eb13420f2c31cab5a85ab, old_about_sha256: b34f7f18fddadf3cea2278f9beff4ccd2afd0c3fd95a8198cf5b208777fc237c, old_license_sha256: e5bb369acb43cb5c66c1c1b97cbc45586d78cbe18adba33f9c3ae78e0940d50a}
+  - {version: 1.60.0, commit: 528da66e5d58708c920acf05e6bcacac2fd74cde, source_identity: e954abcf8f5265745e0b37f68e6fe1813b24eab648d26b89d4269434e34f571f, old_about_sha256: b34f7f18fddadf3cea2278f9beff4ccd2afd0c3fd95a8198cf5b208777fc237c, old_license_sha256: e5bb369acb43cb5c66c1c1b97cbc45586d78cbe18adba33f9c3ae78e0940d50a}
+  - {version: 1.62.0, commit: b1410ed2b73b899912cdc4524a02d347ee744ac0, source_identity: 3613ddd488db79b2eae8bf11dab87a656b2b6096f979dc140568a970fb151fc3, old_about_sha256: 8c750f1529a5e4de63d7a2f48f7750a58c948b9eb3fc309ac5b937e32d1c112b, old_license_sha256: e5bb369acb43cb5c66c1c1b97cbc45586d78cbe18adba33f9c3ae78e0940d50a}
+  - {version: 1.63.0, commit: 600a40fd7bc03c9ad19d8d7a561f46d47c344133, source_identity: 7a2f2e8a8582b02202f1cc7ae64d4d6c476aa34aede39a8a0fc3c06ee568387d, old_about_sha256: 4938e99b1af4630733d7f4d930c36966a5ba40bc488bf4e123f509051e546b07, old_license_sha256: e5bb369acb43cb5c66c1c1b97cbc45586d78cbe18adba33f9c3ae78e0940d50a}
+  - {version: 1.64.0, commit: 4e54eefdec1f1ca7e0096e2d2407917ad863f3b7, source_identity: 0783d53d8dd275fddcc0f53c040391997f0680146a5a605092acce6fa85b7d33, old_about_sha256: d43d512e9be4803ecf9af4501bf007d48c00b016840826ca5ee93b7a5fea839f, old_license_sha256: 56fad99676a39687067146891cdcc88e068bf364bc91531b97aefd904be903c5, old_contributing_sha256: 5f6b2aaf1e860c1662d0f5e2b6e3cbfbb7010868008e0493931478ca0aab6660, old_security_sha256: f86eed9742dea6b51937a270ac681b51f50d9e2669ec5b10186bc5e1865d990c, transform: postcondition-only}
+  - {version: 1.64.1, commit: fc39fc55002a3822a201bda3af0bab63d49a03a2, source_identity: 1ddcc0e5c5ce8dc582538f478e2923468a14fae1eebfb3e1a25527d618bfbb3d, old_license_sha256: 56fad99676a39687067146891cdcc88e068bf364bc91531b97aefd904be903c5, transform: license-postcondition-only}
+  - {version: 1.64.2, commit: 5017c64ff1ec280d561e4c8e14522a0f455383a8, source_identity: 070ad9ddad973dde697be01eda81f7f6865d6ff7a30d6806cc012987abbcf65c, old_license_sha256: 56fad99676a39687067146891cdcc88e068bf364bc91531b97aefd904be903c5, transform: license-postcondition-only}
+  - {version: 1.64.3, commit: 13876dad98d53ac9f6a85275a6bf3f4745b4ec12, source_identity: eda52f8514060ffaf128407ae142574ab21d52ef667806db4cf48c8873d71ae7, old_license_sha256: 56fad99676a39687067146891cdcc88e068bf364bc91531b97aefd904be903c5, transform: license-postcondition-only}
+  - {version: 1.64.4, commit: be75ec78a0e0d6557a3462ed7d24f22820451348, source_identity: 5b7c466eadeb65ce772818a73d2e6bb41598a488639a0a1433eda7536b1977b6, old_license_sha256: 56fad99676a39687067146891cdcc88e068bf364bc91531b97aefd904be903c5, transform: license-postcondition-only}
+  - {version: 1.64.5, commit: a059ba10cc4542df06870a2a78f71567008dade3, source_identity: f4a068ef89f19ac04460d17c3e1ce5b1deebc0046451477009b3c95294d11836, old_license_sha256: 56fad99676a39687067146891cdcc88e068bf364bc91531b97aefd904be903c5, transform: license-postcondition-only}
+refused_sources:
+  - {id: rival-1.43.0, version: 1.43.0, commit: f80905119fe48a7d9aa3d1d632408700afc8af39, source_identity: 264fd5227c7f2871b3bf33dd8722bb375f09bfc780faa296b4e985ad79281863, reason: non-main-rival}
+  - {id: branch-only-1.61.0, version: 1.61.0, commit: 5e0d7016dd6f63f4d78d6ab69d07844abd323872, source_identity: 0766497aa0bfc37d8e87ba76089d5af620db67e67c3f92480f9e58cd37cbe6c2, reason: branch-only-gap}
+  - {id: rival-1.63.0, version: 1.63.0, commit: 27945faea198a7960da0ac692ae0da3177db39c3, source_identity: 64f2d4b4e571392fa752640a758fc079f6743d56d8e4a623238bd284a766ef20, reason: non-main-rival}
+unresolved:
+  target_release_ref: refs/tags/v1.64.6
+  legal_lane:
+    status: exact-payload-evidence-pinned
+    evidence_ref: 3d53bdb687ab5880f6f1d73682dd3482d25e897e
+    required_inputs: []
+    blocks: []
+  bridge_1_64_0:
+    status: alternative-edge-021
+    reason: official identity differs from development identity used by edge 020; exact MIT postcondition is verified without a physical rewrite

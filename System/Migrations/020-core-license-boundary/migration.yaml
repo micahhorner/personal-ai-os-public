@@ -1,0 +1,25 @@
+schema_version: 1.1.0
+id: migration-020-core-license-boundary
+version_target: system_version
+source_distribution: personal-ai-os
+source_identity: edac8a4d6753efaa74e0766bacbf849a87f3beeaca0ce902d706bfec35a53043
+from_version: 1.64.0
+to_version: 1.64.6
+prerequisites: []
+content_selector:
+  all: true
+transform:
+  replace_exact_files:
+    - path: LICENSE.md
+      old_sha256:
+        - e5bb369acb43cb5c66c1c1b97cbc45586d78cbe18adba33f9c3ae78e0940d50a
+        - 56fad99676a39687067146891cdcc88e068bf364bc91531b97aefd904be903c5
+      payload: payloads/LICENSE.md
+      new_sha256: 56fad99676a39687067146891cdcc88e068bf364bc91531b97aefd904be903c5
+validation:
+  - check: vault-validate
+rollback:
+  strategy: exact-checkpoint
+  automatic_on_validation_failure: true
+idempotency_key: migration-020-core-license-boundary-v3
+manifest_hash: 54a6d912c0619cca501e0bfffbdd668a3a1989c514418c3bc139325bd4792a52

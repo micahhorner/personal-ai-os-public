@@ -1,0 +1,12 @@
+<svg width="100%" viewBox="0 0 680 368" role="img" xmlns="http://www.w3.org/2000/svg">
+<title>Personal AI OS — runtime autonomy ladder</title>
+<desc>Five autonomy levels from L0 read-only at the bottom to L4 migrations at the top. Higher levels are earned by passing the certification battery; the kill switch overrides every level.</desc>
+<text class="th" x="40" y="28">Autonomy is earned by certification — new runtimes start at L0</text>
+<g class="c-red"><rect x="40" y="52" width="600" height="48" rx="9" stroke-width="0.5"/><text class="th" x="58" y="82" text-anchor="start" style="font-size:16px">L4</text><text class="th" x="104" y="82" text-anchor="start">Migrations &amp; structural change</text><text class="ts" x="624" y="82" text-anchor="end">earned + per-instance approval</text></g>
+<g class="c-amber"><rect x="40" y="106" width="600" height="48" rx="9" stroke-width="0.5"/><text class="th" x="58" y="136" text-anchor="start" style="font-size:16px">L3</text><text class="th" x="104" y="136" text-anchor="start">Guided multi-file construction</text><text class="ts" x="624" y="136" text-anchor="end">earned via certification battery</text></g>
+<g class="c-teal"><rect x="40" y="160" width="600" height="48" rx="9" stroke-width="0.5"/><text class="th" x="58" y="190" text-anchor="start" style="font-size:16px">L2</text><text class="th" x="104" y="190" text-anchor="start">Validated low-risk writes</text><text class="ts" x="624" y="190" text-anchor="end">shipped default (Claude Code)</text></g>
+<g class="c-blue"><rect x="40" y="214" width="600" height="48" rx="9" stroke-width="0.5"/><text class="th" x="58" y="244" text-anchor="start" style="font-size:16px">L1</text><text class="th" x="104" y="244" text-anchor="start">Propose — drafts into 00 Inbox</text><text class="ts" x="624" y="244" text-anchor="end">low trust</text></g>
+<g class="c-gray"><rect x="40" y="268" width="600" height="48" rx="9" stroke-width="0.5"/><text class="th" x="58" y="298" text-anchor="start" style="font-size:16px">L0</text><text class="th" x="104" y="298" text-anchor="start">Read · search · summarize only</text><text class="ts" x="624" y="298" text-anchor="end">default for any new runtime</text></g>
+<text class="ts" x="40" y="336" text-anchor="start">Kill switch (manifest) off → every level refuses all writes.</text>
+<text class="ts" x="40" y="356" text-anchor="start">Permissions come from passing test fixtures, never reputation.</text>
+</svg>

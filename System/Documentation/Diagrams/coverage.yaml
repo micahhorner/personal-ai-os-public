@@ -1,0 +1,131 @@
+# coverage.yaml — the machine-readable source of truth for atlas coverage.
+#
+# This file is what makes "is everything documented?" a checkable question
+# instead of a hopeful one. `aios doc-check` enumerates every component in the
+# product (capabilities, agents, workflows) from the filesystem, and FAILS if
+# any of them is absent from `components` below, or if any referenced diagram
+# file is missing. The human-readable tables in CATALOG.md are HAND-maintained:
+# `doc-check` verifies only that each registered diagram is listed somewhere in
+# that file, so a stale status row does not fail the gate. (These comments named
+# a `check_coverage.py` that has never existed in the product tree; the gate has
+# always been `doc-check`.)
+#
+# When you add a component to AI OS: the checker fails until you (1) author the
+# diagram SVG, (2) add its entry to `diagrams`, and (3) map the component here.
+
+product: personal-ai-os
+product_path: ../../..               # from System/Documentation/Diagrams/ to the product root
+svg_dir: svg
+
+# Every diagram in the atlas: id -> file, title, theme. Drives the catalog tables.
+diagrams:
+  "01": {file: 01-five-layer-architecture.svg,      title: Five-Layer Architecture,        theme: Foundations}
+  "02": {file: 02-data-flow-governance.svg,          title: Data Flow & Governance,          theme: Foundations}
+  "03": {file: 03-component-operations-map.svg,       title: Component & Operations Map,       theme: Foundations}
+  "04": {file: 04-operations-matrix.svg,              title: Operations Matrix,               theme: Governance & safety}
+  "05": {file: 05-change-control-tiers.svg,           title: Change-Control Tiers,            theme: Governance & safety}
+  "06": {file: 06-privacy-routing-gate.svg,           title: Privacy Routing Gate,            theme: Governance & safety}
+  "07": {file: 07-autonomy-ladder.svg,                title: Autonomy Ladder,                 theme: Runtime & execution}
+  "08": {file: 08-knowledge-model-lifecycle.svg,      title: Knowledge Model & Lifecycle,     theme: Knowledge & data model}
+  "09": {file: 09-onboarding-journey.svg,             title: Onboarding Journey,              theme: Lifecycle journeys}
+  "10": {file: 10-import-migration-flow.svg,          title: Import & Migration Flow,         theme: Lifecycle journeys}
+  "11": {file: 11-runtime-kernel-router.svg,          title: Runtime Kernel & Task Router,    theme: Runtime & execution}
+  "12": {file: 12-three-write-lanes.svg,              title: The Three Write Lanes,           theme: Governance & safety}
+  "13": {file: 13-agent-model.svg,                    title: Agent Model,                     theme: Agents}
+  "14": {file: 14-inbox-canonical-pipeline.svg,       title: Inbox → Canonical Pipeline,      theme: Capabilities & workflows}
+  "15": {file: 15-safe-write-flow.svg,                title: safe-write Flow,                 theme: Capabilities & workflows}
+  "16": {file: 16-retrieve-context-flow.svg,          title: retrieve-context Flow,           theme: Capabilities & workflows}
+  "17": {file: 17-weekly-maintenance-workflow.svg,    title: Weekly Maintenance Workflow,     theme: Capabilities & workflows}
+  "18": {file: 18-metadata-relationship-model.svg,    title: Metadata & Relationship Model,   theme: Knowledge & data model}
+  "19": {file: 19-adapter-translation.svg,            title: Adapter Translation,             theme: Runtime & execution}
+  "20": {file: 20-certification-battery.svg,          title: Certification Battery,           theme: Runtime & execution}
+  "21": {file: 21-recovery-backup.svg,                title: Recovery & Backup,               theme: Operations, recovery & change}
+  "22": {file: 22-tooling-generated-state.svg,        title: Tooling & Generated State,       theme: Operations, recovery & change}
+  "23": {file: 23-versioning-migration.svg,           title: Versioning & Migration,          theme: Operations, recovery & change}
+  "24": {file: 24-flows-of-work-map.svg, title: "Flows of Work (map)", theme: "User flows"}
+  "25": {file: 25-flow-capture-and-file.svg, title: "Capture & File (flow)", theme: "User flows"}
+  "26": {file: 26-flow-get-set-up.svg, title: "Get Set Up (flow)", theme: "User flows"}
+  "27": {file: 27-flow-ask-and-get-answers.svg, title: "Ask & Get Answers (flow)", theme: "User flows"}
+  "28": {file: 28-flow-record-a-decision.svg, title: "Record a Decision (flow)", theme: "User flows"}
+  "29": {file: 29-flow-add-spoken-context.svg, title: "Add Spoken Context (flow)", theme: "User flows"}
+  "30": {file: 30-flow-produce-a-deliverable.svg, title: "Produce a Deliverable (flow)", theme: "User flows"}
+  "31": {file: 31-flow-weekly-maintenance.svg, title: "Weekly Maintenance (flow)", theme: "User flows"}
+  "32": {file: 32-flow-bring-your-own-method.svg, title: "Bring Your Own Method (flow)", theme: "User flows"}
+  "33": {file: 33-flow-grow-the-system.svg, title: "Grow the System (flow)", theme: "User flows"}
+  "34": {file: 34-flow-review-the-ai-work.svg, title: "Review the AI's Work (flow)", theme: "User flows"}
+  "35": {file: 35-flow-stop-and-recover.svg, title: "Stop & Recover (flow)", theme: "User flows"}
+  "36": {file: 36-automations-always-on-layer.svg, title: "Automations Always-On Layer", theme: "User flows"}
+  "37": {file: 37-portable-vault-profile.svg, title: "Portable Vault Profile", theme: "Runtime & execution"}
+  "38": {file: 38-method-kit-flow.svg, title: "method-kit Flow", theme: "Capabilities & workflows"}
+  "39": {file: 39-addon-pack-lifecycle.svg, title: "Add-On Pack Lifecycle", theme: "Capabilities & workflows"}
+  "40": {file: 40-session-handoff-loop.svg, title: "Session Handoff Loop", theme: "Capabilities & workflows"}
+  "41": {file: 41-manage-todo-loop.svg, title: "manage-todo Loop", theme: "Capabilities & workflows"}
+  "42": {file: 42-start-project-flow.svg, title: "start-project Flow", theme: "Capabilities & workflows"}
+  "43": {file: 43-record-decision-flow.svg, title: "record-decision Flow", theme: "Capabilities & workflows"}
+  "44": {file: 44-adversary-gate.svg, title: "Adversary Pre-Build Gate", theme: "Capabilities & workflows"}
+
+# Every product COMPONENT -> the diagram(s) that cover it.
+# The checker requires one entry here for each component it finds on disk.
+components:
+  capability-safe-write:          [15, 03]
+  capability-retrieve-context:    [16, 03]
+  capability-ingest-and-connect:  [14, 03]
+  capability-maintain-vault:      [17, 03]
+  capability-recover:             [21, 03]
+  capability-import-vault:        [10, 03]
+  capability-build-extension:     [08, 03]
+  capability-method-kit:          [38, 03]
+  capability-manage-packs:        [39, 03]
+  capability-session-handoff:     [40, 03]
+  capability-manage-todo:         [41, 03]
+  capability-start-project:       [42, 03]
+  capability-record-decision:     [43, 03]
+  capability-adversary:           [44, 08]
+  agent-steward:                  [13, 17]
+  agent-onboarding-guide:         [13, 09]
+  agent-extension-builder:        [13, 08]
+  workflow-inbox-processing:      [14]
+  workflow-weekly-maintenance:    [17]
+
+# Non-component doc AREAS -> diagram(s). These are declared (there is no machine
+# list of "doc areas"), so the checker only verifies the referenced files exist.
+areas:
+  portable-vault-profile:  {diagrams: [37], source: Architecture/Portable Vault Profile.md}
+  architecture-layers:      {diagrams: [01], source: Architecture/System Map.md}
+  data-flow:                {diagrams: [02], source: Architecture/System Map.md}
+  operations-contract:      {diagrams: [04], source: Operations/operations.yaml}
+  change-control:           {diagrams: [05], source: Governance/Change Control and Preflight.md}
+  privacy:                  {diagrams: [06], source: Governance/Privacy and Boundaries.md}
+  write-lanes:              {diagrams: [12], source: Runtime/Runtime Kernel.md}
+  kernel-router:            {diagrams: [11], source: Runtime/Task Router.yaml}
+  autonomy:                 {diagrams: [07], source: Documentation/AI Operator Manual.md}
+  adapters:                 {diagrams: [19], source: Adapters/Claude/operation-mapping.yaml}
+  certification:            {diagrams: [20], source: Tests/Certification Battery.md}
+  knowledge-model:          {diagrams: [08], source: Schemas/}
+  metadata-relationships:   {diagrams: [18], source: Documentation/Metadata and Relationship Dictionary.md}
+  onboarding:               {diagrams: [09], source: Onboarding/Onboarding Specification.md}
+  import-migration:         {diagrams: [10], source: Migrations/README.md}
+  versioning:               {diagrams: [23], source: Governance/Versioning and Migration.md}
+  tooling-generated:        {diagrams: [22], source: Generated/}
+
+flows:                        # each Flows/*.md walkthrough -> its diagram(s); doc-check enforces this
+  "Flows of Work": [24]
+  "1 - Get Set Up": [26]
+  "2 - Capture and File": [25]
+  "3 - Ask and Get Answers": [27]
+  "4 - Record a Decision": [28]
+  "5 - Add Spoken Context": [29]
+  "6 - Produce a Deliverable": [30]
+  "7 - Weekly Maintenance": [31]
+  "8 - Bring Your Own Method": [32]
+  "9 - Grow the System": [33]
+  "10 - Review the AI's Work": [34]
+  "11 - Stop and Recover": [35]
+  "Automations Reference": [36]
+
+# Areas intentionally NOT diagrammed (prose-only). Listed so the checker and
+# reviewers know these are deliberate, not gaps.
+prose_only:
+  - full-preflight-21-category-taxonomy
+  - reserved-metadata-key-list
+  - controlled-vocabularies

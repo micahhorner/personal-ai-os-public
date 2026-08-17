@@ -1,0 +1,421 @@
+# diagram-metadata.yaml — rich, human-and-machine-readable description of what
+# each diagram actually displays. This is the primary corpus for the support
+# chatbot and the source for the catalog's prose. `aios doc-check` REQUIRES a
+# non-empty description here for every diagram in coverage.yaml, so a diagram
+# without a description fails the gate. `aios doc-audit` reads these descriptions
+# too (DEC-105): they are prose, and a count or a retired promise is as wrong
+# here as it is in a manual.
+#
+# Fields per diagram:
+#   description : 1-3 sentences on what the diagram literally shows.
+#   displays    : the concrete elements/labels a viewer sees.
+#   answers     : example questions this diagram helps a user answer.
+#   source_docs : the canonical product docs it is grounded in.
+#   audience    : who it is for.
+
+"01":
+  description: >-
+    The five layers of a Personal AI OS instance shown as a vertical stack, from
+    the durable portable core (your knowledge folders plus the System rulebook)
+    at the top down to generated and runtime state at the bottom. Generated
+    publications are disposable; Logs is mixed state whose freshness history
+    and obligations must be preserved. The AI is a swappable guest and the
+    folder is the owned asset.
+  displays: [durable portable core, personal configuration (80 User), governance & operations (System), adapters, generated and mixed runtime state]
+  answers: ["What are the parts of AI OS?", "What do I actually own?", "Where does my data live vs. the rules?"]
+  source_docs: [Architecture/System Map.md, Documentation/Product Overview.md]
+  audience: anyone orienting to the product
+
+"02":
+  description: >-
+    How information moves through the system: capture in the Inbox, ingest and
+    connect into canonical knowledge, and out to cited outputs — with the
+    governance lane (preflight, apply, journal, checkpoint) that every write
+    passes through, plus the kill switch and rollback.
+  displays: [Inbox, ingest & connect, canonical knowledge, outputs, preflight, apply, journal, checkpoint]
+  answers: ["What happens to something I add?", "How are writes kept safe?", "How do outputs get cited?"]
+  source_docs: [Architecture/System Map.md, Governance/Change Control and Preflight.md]
+  audience: understanding the flow of information and write safety
+
+"03":
+  description: >-
+    The hourglass architecture: runtimes at the top, adapters translating down to
+    the runtime-neutral contract of 15 operations at the waist, then the fourteen
+    capabilities, three agents, and two workflows that rest on it, all acting on
+    the vault of plain files.
+  displays: [runtimes, adapters, 15 operations, capabilities, agents, workflows, the vault]
+  answers: ["What are the functional pieces?", "How do runtimes connect to the vault?", "What sits on the operation contract?"]
+  source_docs: [Generated/component-index.json, Operations/operations.yaml, Architecture/Canonical Architecture Specification.md]
+  audience: developers and operators
+
+"04":
+  description: >-
+    All 15 stable operations sorted into four kinds — read, write-staging, write,
+    and system — and color-coded by approval mode (automatic, automatic-with-report
+    or tiered, and human-approval-required).
+  displays: [read ops, write-staging op, write ops, system ops, approval legend]
+  answers: ["What operations exist?", "Which operations need approval?", "What can the AI do without asking?"]
+  source_docs: [Operations/operations.yaml, Governance/Change Control and Preflight.md]
+  audience: anyone needing the precise operation contract
+
+"05":
+  description: >-
+    The four change-control risk tiers (Low, Medium, High, Critical) as escalating
+    rows, each showing example changes, the preflight depth added, and the approval
+    required — plus the four-outcome invariant and protected objects.
+  displays: [Low tier, Medium tier, High tier, Critical tier, four-outcome rule, kill switch]
+  answers: ["How does the system decide how careful to be?", "What needs human approval?", "What can never be auto-changed?"]
+  source_docs: [Governance/Change Control and Preflight.md]
+  audience: understanding proportional caution
+
+"06":
+  description: >-
+    How the governance routing fields feed the filtered CLI transport before
+    relevance ranking. The split describes that result, and the diagram states
+    the enforcement limit: it is mechanical only as the sole content route;
+    native file access remains compliance, not confinement. Sync is a storage
+    boundary and deliberately not a routing input.
+  displays: [record fields, filtered transport, reaches-the-AI result, excluded result, direct-file limitation]
+  answers: ["How is my private data protected?", "What does the AI never see?", "How does local-only work?"]
+  source_docs: [Governance/Privacy and Boundaries.md]
+  audience: anyone evaluating the privacy model
+
+"07":
+  description: >-
+    The five runtime autonomy levels L0 to L4 as a ladder, what each unlocks, which
+    are shipped-default versus earned by certification, and that the kill switch
+    overrides every level.
+  displays: [L0 read-only, L1 propose, L2 low-risk writes, L3 guided construction, L4 migrations]
+  answers: ["How much can the AI do on its own?", "How does a runtime earn more trust?", "What's the default?"]
+  source_docs: [Documentation/AI Operator Manual.md, Architecture/Canonical Architecture Specification.md, Tests/Certification Battery.md]
+  audience: operators certifying a runtime; trust review
+
+"08":
+  description: >-
+    The eight note classes every record can be (note, entity, decision, procedure,
+    source, project, output, working) plus the ninth schema, component, which
+    describes capabilities/agents/workflows and is a contract rather than a record
+    — and the five-step lifecycle for adding a new component: design with
+    sign-off, scaffold to draft, implement with a test, validate, then register to
+    active.
+  displays: [note classes, component schema, design, scaffold, implement, validate, register]
+  answers: ["What kinds of records exist?", "How is a new capability created?", "What makes a component 'active'?"]
+  source_docs: [Schemas/, Capabilities/build-extension/SKILL.md]
+  audience: anyone extending the system or authoring records
+
+"09":
+  description: >-
+    The eight guided onboarding stages as a snaking path, highlighting that privacy
+    and boundaries (stage 2) come before any personal data is collected, and noting
+    re-onboarding triggers.
+  displays: [8 stages, privacy at stage 2, snaking flow]
+  answers: ["How do I get started?", "When is my privacy set up?", "What does onboarding cover?"]
+  source_docs: [Onboarding/Onboarding Specification.md]
+  audience: new users; implementation & admin
+
+"10":
+  description: >-
+    The shared safe rhythm for importing an existing vault and for running a
+    numbered migration — dry-run, human approval, apply with a checkpoint first,
+    then validate — plus the verbatim versus mapped import modes.
+  displays: [import lane, migration lane, dry-run, approval, apply+checkpoint, validate]
+  answers: ["How do I bring in my existing notes?", "How does structural change stay safe?", "What are verbatim and mapped modes?"]
+  source_docs: [Capabilities/import-vault/SKILL.md, Migrations/README.md]
+  audience: operators importing a vault or running a migration
+
+"11":
+  description: >-
+    Progressive disclosure: a small always-loaded kernel of absolute rules, then
+    the task router that matches the intent and loads only the procedures that task
+    needs, across four modes — normal, maintenance, developer, and onboarding.
+  displays: [runtime kernel, task router, normal mode, maintenance mode, developer mode, onboarding mode]
+  answers: ["How does the AI decide what rules to load?", "What is progressive disclosure here?", "How is a task routed?"]
+  source_docs: [Runtime/Runtime Kernel.md, Runtime/Task Router.yaml]
+  audience: understanding how the AI operates each turn
+
+"12":
+  description: >-
+    How every write is classified into one of three lanes — ordinary, consequential,
+    or system — with increasing process at each level, and the rule to pick the
+    heavier lane when unsure.
+  displays: [ordinary lane, consequential lane, system lane]
+  answers: ["How much process does a change get?", "When does the AI stop and ask?", "What's a 'system' change?"]
+  source_docs: [Runtime/Runtime Kernel.md]
+  audience: understanding how much caution a given edit gets
+
+"13":
+  description: >-
+    The three agents (steward, onboarding-guide, extension-builder) side by side,
+    each with its role, the capabilities it uses, and its hard guardrail, plus the
+    shared contract that no agent may modify itself or any agent's contract.
+  displays: [steward, onboarding-guide, extension-builder, shared contract]
+  answers: ["What agents exist and what do they do?", "What can the steward NOT do?", "How is an agent constrained?"]
+  source_docs: [Agents/steward/AGENT.md, Agents/onboarding-guide/AGENT.md, Agents/extension-builder/AGENT.md]
+  audience: anyone using or reasoning about the agents
+
+"14":
+  description: >-
+    The ingest-and-connect pipeline that turns captured material into connected
+    knowledge — dedupe, preserve as an immutable source, extract, connect — then the
+    nine effects a new item can have and the four outcomes every effect must resolve to.
+  displays: [Inbox, dedupe, preserve, extract, connect, nine effects, four outcomes]
+  answers: ["What happens when I drop something in the Inbox?", "How are contradictions handled?", "What are the nine effects?"]
+  source_docs: [Capabilities/ingest-and-connect/SKILL.md, Workflows/inbox-processing.md]
+  audience: understanding the capture-to-canonical pipeline
+
+"15":
+  description: >-
+    The safe-write capability: resolve against existing records first (duplicates
+    are corruption), then branch into a create path or a change path, always ending
+    in validation. Shows how sources, generated files, and approved records differ.
+  displays: [resolve-first, create path, change path, validate]
+  answers: ["How does the AI create or edit a note safely?", "What happens when I edit an approved record?", "Why resolve first?"]
+  source_docs: [Capabilities/safe-write/SKILL.md]
+  audience: anyone authoring or editing records
+
+"16":
+  description: >-
+    The six-step retrieve-context procedure: filter by privacy before ranking,
+    orient via the generated index instead of opening notes in bulk, resolve to
+    canonical, check freshness on access, assemble summary-first, and cite by name
+    or abstain honestly.
+  displays: [filter, orient via index, resolve, freshness, assemble, cite/abstain]
+  answers: ["How does the AI find and use my knowledge?", "Why doesn't it read everything?", "How does it cite?"]
+  source_docs: [Capabilities/retrieve-context/SKILL.md]
+  audience: understanding retrieval and citation
+
+"17":
+  description: >-
+    The seven-step weekly maintenance pass run by the steward or on request: health
+    report, report the Inbox (never drained without a separate yes), freshness
+    triage, drift checks, rebuild generated views, checkpoint with a zip snapshot,
+    and deliver the human review queue.
+  displays: [health, inbox, freshness, drift checks, generate, checkpoint, review queue]
+  answers: ["What keeps the vault healthy?", "What does the weekly pass do?", "How is drift caught?"]
+  source_docs: [Workflows/weekly-maintenance.md, Capabilities/maintain-vault/SKILL.md]
+  audience: operators; understanding upkeep
+
+"18":
+  description: >-
+    The nine relationship types records can carry, the direction rule (store the
+    link once in the dependent item; reverse views are generated), and the
+    provenance and epistemic fields (confidence, verification) that keep inference
+    from being presented as direct evidence.
+  displays: [nine relationship types, direction rule, provenance & epistemic fields]
+  answers: ["How do notes link to each other?", "How is provenance tracked?", "What is 'verification: inferred'?"]
+  source_docs: [Documentation/Metadata and Relationship Dictionary.md]
+  audience: anyone reasoning about the data model
+
+"19":
+  description: >-
+    How the canonical vault.* operations map to a specific runtime's native
+    abilities — the Claude adapter shown as the example — emphasizing that the
+    operation contract is canonical and the adapter is only transport.
+  displays: [canonical operations, Claude adapter transports, mapping arrows]
+  answers: ["How does a runtime actually perform operations?", "What does an adapter do?", "Why is the contract runtime-neutral?"]
+  source_docs: [Adapters/Claude/operation-mapping.yaml]
+  audience: developers integrating a runtime
+
+"20":
+  description: >-
+    Which test fixtures certify each autonomy level from L0 to L4, and the rule that
+    a failed fixture caps the runtime at the highest fully-passed level, with results
+    recorded in the runtime profile.
+  displays: [L0 fixtures, L1 fixtures, L2 fixtures, L3 fixtures, L4 fixtures]
+  answers: ["How does a runtime earn an autonomy level?", "What happens if a test fails?", "How is trust proven?"]
+  source_docs: [Tests/Certification Battery.md]
+  audience: operators certifying a runtime
+
+"21":
+  description: >-
+    The recover capability moving through stabilize, diagnose, restore, and verify,
+    its two restore paths (regenerate generated state, or human-approved rollback of
+    content), and the backup model where every checkpoint is a git commit or zip.
+  displays: [stabilize, diagnose, restore, verify, two restore paths, backups]
+  answers: ["What happens when something breaks?", "How do I roll back?", "How are backups made?"]
+  source_docs: [Capabilities/recover/SKILL.md, Documentation/Maintenance and Recovery Guide.md]
+  audience: operators; incident recovery
+
+"22":
+  description: >-
+    All 32 aios.py subcommands grouped by function alongside generated artifacts
+    and the three separately atomic publication domains: complete Generated tree,
+    tool-owned skill projections, then freshness registry plus ledger CAS.
+    System/Logs is mixed state and is not a whole-directory disposal target.
+  displays: [CLI command groups, generated artifacts, three publication domains, mixed Logs boundary]
+  answers: ["What commands does the CLI have?", "What files are generated?", "Can I edit the indexes?"]
+  source_docs: [Scripts/aios.py, Generated/]
+  audience: operators and developers
+
+"23":
+  description: >-
+    What is semver-versioned (the whole system, the portability contract, each note
+    schema), the meaning of major/minor/patch, that knowledge notes use supersession
+    instead of versions, and that structural change is a governed amendment.
+  displays: [three versioned things, semver rules, notes vs schema, amendment path]
+  answers: ["What has a version number?", "What is a breaking change here?", "How are knowledge notes tracked over time?"]
+  source_docs: [Governance/Versioning and Migration.md]
+  audience: maintainers; anyone reasoning about change
+
+"24":
+  description: >-
+    The eleven user flows grouped by when you use them; the map to every walkthrough.
+  audience: users learning the flows of work
+"25":
+  description: >-
+    Capture & file, user's view: drop a file, say process my inbox, get connected cited notes.
+  audience: users learning the flows of work
+"26":
+  description: >-
+    Get set up (onboarding), user's view: open your AI; it sets privacy first and makes the folder yours.
+  audience: users learning the flows of work
+"27":
+  description: >-
+    Ask & get cited answers: ask plainly; privacy-filtered retrieval returns a cited answer or honest emptiness.
+  audience: users learning the flows of work
+"28":
+  description: >-
+    Record a decision: state it; one dated Decision record is filed and linked, resurfacing at revisit time.
+  audience: users learning the flows of work
+"29":
+  description: >-
+    Add spoken/tacit context: tell it something unwritten; captured as a source labeled as your recollection.
+  audience: users learning the flows of work
+"30":
+  description: >-
+    Produce a deliverable: ask it to draft from what's known; output lands in Outputs with lineage, awaiting approval.
+  audience: users learning the flows of work
+"31":
+  description: >-
+    Weekly maintenance: say run maintenance; health, an Inbox report (never drained
+    without a separate yes), freshness triage, rebuild, checkpoint, short review list.
+  audience: users learning the flows of work
+"32":
+  description: >-
+    Bring your own method & notes: it learns your organizing method and imports your existing notes safely.
+  audience: users learning the flows of work
+"33":
+  description: >-
+    Grow the system: tell the Extension Builder a goal; it designs, tests, documents, and activates a new component.
+  audience: users learning the flows of work
+"34":
+  description: >-
+    Review the AI's work: the journal, stale flags, and approvals give you a verifiable audit trail.
+  audience: users learning the flows of work
+"35":
+  description: >-
+    Stop & recover: one line halts all AI writes; the journal and checkpoints restore any earlier state.
+  audience: users learning the flows of work
+"36":
+  description: >-
+    The always-on layer: every automatic check/automation grouped by when it fires (write, ask, ingest, weekly, on-demand certification, standing guards).
+  audience: users learning the flows of work
+
+"37":
+  description: >-
+    The portability contract: the rules every file follows (plain Markdown, stable immutable IDs,
+    cross-platform-safe names, file classes, folder-registry indirection) and what they guarantee —
+    operable by any editor or AI, runs on any OS, export = copy the folder, no vendor lock-in.
+  answers: ["Why is the vault portable?", "What does it take to move or export it?", "Am I locked into Obsidian or Claude?"]
+  source_docs: [Architecture/Portable Vault Profile.md]
+  audience: anyone evaluating portability and lock-in
+
+"38":
+  description: >-
+    The six-step method-kit procedure: interview the user across eight sections
+    with evidence graded E1–E4, resolve the eleven personalization dials, generate
+    their operating-method pack into their user layer, wire pack-skills to follow
+    it, have them ratify it, and record it as theirs to keep.
+  displays: [interview, resolve dials, generate pack, wire skills, ratify, yours to keep]
+  answers: ["How do I build my own operating method?", "What does the Method Kit produce?", "Is the pack mine?"]
+  source_docs: [Capabilities/method-kit/SKILL.md]
+"39":
+  description: >-
+    The manage-packs lifecycle: the user drops a ZIP, reviews its exact archive
+    hash, and applies only that plan. Staged and live checks precede an activation
+    receipt and index publication. Removal archives user workspace, quarantines
+    the pack, validates while reversible, then commits or restores; purge is explicit.
+  displays: [drop ZIP in root, exact review hash, install or update, staged check and placement, validate and activation receipt, transactional removal]
+  answers: ["How do I install an add-on?", "How do I update or remove a pack?", "Where does an installed add-on live?"]
+  source_docs: [Capabilities/manage-packs/SKILL.md]
+  audience: users building their own operating method
+"40":
+  description: >-
+    The session-handoff loop: a substantive session closes by sweeping the change
+    journal, checkpointing, validating, and recording an honest stopping point —
+    what was done with evidence, open items in order, anything left broken. A later
+    cold session reads that record before acting, re-verifies its claims against
+    live state with scripts, and restates the frame before writing. Trivial Q&A
+    sessions produce no record; the record's form is the user's (80 User/handoff.md,
+    method packs), the floors are not.
+  displays: [journal sweep, checkpoint + validate, honest stopping point, cold resume, record read first, claims re-verified]
+  answers: ["How do I end a session so nothing is lost?", "How does a new session pick up old work?", "Why does the AI re-check what the handoff says?"]
+  source_docs: [Capabilities/session-handoff/SKILL.md]
+  audience: anyone working across multiple sessions
+"41":
+  description: >-
+    The manage-todo loop: "add X to my to-do list" routes to the manage-todo
+    capability, which drafts all four context parts of the item (what, why it
+    matters, what it blocks, a path that resolves) from the conversation, asks at
+    most one clarifying question, link-checks every path the item touches — dead
+    paths are flagged in place, the rot detector — then writes, bumps updated, and
+    validates. Completing moves items to Done with the date; reprioritizing
+    reorders. A bare file reference is not an item; counts about the vault come
+    from scripts, never from the list's prose.
+  displays: [routed add, four-part item contract, one question max, link-check + rot flag, write + validate, done and reprioritize]
+  answers: ["How do I add something to my to-do list?", "Why does the AI ask one question before writing an item?", "How do dead references in the list get caught?"]
+  source_docs: [Capabilities/manage-todo/SKILL.md]
+  audience: everyone — the daily capture loop
+"42":
+  description: >-
+    The start-project flow: "let's start a project" routes to the start-project
+    capability, which resolves the name first (an existing project is resumed, not
+    duplicated), creates the folder under 10 Projects, creates a schema-valid
+    project note from the template with a minted id and stage, registers it with
+    aios generate, validates, and states where next actions go. Plans, handoffs,
+    and gates belong to an installed method pack — consulted by mention, never
+    rebuilt by the generic floor.
+  displays: [resolve first, folder under 10 Projects, template note with minted id, register + validate, where actions go, method-pack consult line]
+  answers: ["How do I start a project?", "Why doesn't the AI create a plan document?", "What happens if the project already exists?"]
+  source_docs: [Capabilities/start-project/SKILL.md]
+  audience: anyone starting bounded multi-session work
+"43":
+  description: >-
+    The record-decision flow: a settled choice ("let's go with option B",
+    "approved", "we're not doing X") routes to the record-decision capability.
+    The bar is honest — a decision closes alternatives or changes scope; a
+    preference is not one. The capability resolves first (a same-question record
+    means supersession, never a duplicate), drafts the whole record from the
+    conversation (decision, why, alternatives, evidence, tacit context, project
+    link), asks at most one clarifying question, mints a dated slug id — no
+    record ever claims a number — writes to the top-level Decisions folder, then
+    runs aios generate and validate. The register view is derived from
+    frontmatter on every rebuild, newest first and grouped by project, so
+    decisions recorded in parallel cannot collide by construction.
+  displays: [the decision bar, resolve first + supersession, record drafted from context, one question max, dated slug id — no claimed numbers, Decisions/ home, derived register view]
+  answers: ["How do I record a decision?", "Where do my decisions live?", "Why don't decisions get numbers?", "What happens when a decision changes?"]
+  source_docs: [Capabilities/record-decision/SKILL.md]
+  audience: everyone — the moment a choice settles
+"44":
+  description: >-
+    The adversary pre-build gate: a deliberately hostile read of a plan, spec, or
+    scope BEFORE construction starts. It fires on demand ("red-team this",
+    "pressure-test this") or as build-extension step 3b on any High-tier build —
+    a new schema, template, capability, agent, script, workflow, or structural
+    change — before a single file is created. The pass sets its frame (attack the
+    work not the author; record whether this is a self-review), steelmans the plan
+    first, then runs five separate reads over the same text: load-bearing
+    assumptions each with how we would know it is false, failure modes the plan
+    never names, the cheaper version a skeptic would build instead, scope traps
+    and hidden dependencies, and the plan-killer named singly and ranked first.
+    Every finding cites the line it attacks and states its own falsifier, and the
+    report must name at least one thing the plan gets right — the anti-theater
+    rule. The verdict is proceed, proceed-with-amendments, or redesign; it advises
+    and never blocks, the report is filed as working material beside the plan, and
+    a skipped gate is recorded as skipped-with-owner-OK rather than passing
+    silently. Two permanent evals keep it falsifiable: a seeded-flaw fixture and a
+    retrodiction run against a real spec with a known post-hoc correction.
+  displays: [the trigger — on demand or the High-tier gate, steelman before attack, the five reads, line citation plus falsifier per finding, one thing named right, the three-verdict scale, working-material filing and recorded skips]
+  answers: ["How do I get a plan attacked before I build it?", "What stops the red-team pass from being theater?", "Does the adversary block my build?", "Where does the report go?", "What happens if we skip the gate?"]
+  source_docs: [Capabilities/adversary/SKILL.md, Capabilities/build-extension/SKILL.md]
+  audience: anyone about to spend real effort on a plan

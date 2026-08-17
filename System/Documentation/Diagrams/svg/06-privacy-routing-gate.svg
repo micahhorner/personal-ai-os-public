@@ -1,0 +1,15 @@
+<svg width="100%" viewBox="0 0 680 272" role="img" xmlns="http://www.w3.org/2000/svg">
+<title>Personal AI OS — privacy routing gate</title>
+<desc>Every record carries classification, domain, and ai_use fields. The filtered CLI transport excludes disallowed records before relevance ranking. This is a mechanical boundary only when it is the runtime's sole route; native file access remains compliance, not confinement.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+<text class="th" x="40" y="28">Filtered retrieval applies privacy before ranking</text>
+<g class="c-blue"><rect x="40" y="52" width="190" height="160" rx="12" stroke-width="0.5"/><text class="th" x="56" y="78" text-anchor="start">Every record carries</text><text class="th" x="56" y="106" text-anchor="start">classification</text><text class="ts" x="56" y="124" text-anchor="start">how sensitive (4 levels)</text><text class="th" x="56" y="150" text-anchor="start">domain</text><text class="ts" x="56" y="168" text-anchor="start">work · personal · shared</text><text class="th" x="56" y="192" text-anchor="start">ai_use</text><text class="ts" x="56" y="208" text-anchor="start">the routing boundary</text></g>
+<line x1="230" y1="132" x2="254" y2="132" class="arr" marker-end="url(#arrow)"/>
+<g class="c-amber"><rect x="256" y="52" width="168" height="160" rx="12" stroke-width="0.5"/><text class="th" x="340" y="82" text-anchor="middle" dominant-baseline="central">Filtered transport</text><text class="ts" x="340" y="102" text-anchor="middle" dominant-baseline="central">aios search + read</text><text class="th" x="340" y="142" text-anchor="middle" dominant-baseline="central">filter BEFORE ranking</text><text class="ts" x="340" y="162" text-anchor="middle" dominant-baseline="central">excluded from this result</text></g>
+<line x1="424" y1="96" x2="452" y2="88" class="arr" marker-end="url(#arrow)"/>
+<line x1="424" y1="168" x2="452" y2="176" class="arr" marker-end="url(#arrow)"/>
+<g class="c-green"><rect x="456" y="56" width="184" height="72" rx="10" stroke-width="0.5"/><text class="th" x="548" y="82" text-anchor="middle" dominant-baseline="central">Reaches the AI</text><text class="ts" x="548" y="102" text-anchor="middle" dominant-baseline="central">allowed · in-domain only</text></g>
+<g class="c-red"><rect x="456" y="140" width="184" height="72" rx="10" stroke-width="0.5"/><text class="th" x="548" y="166" text-anchor="middle" dominant-baseline="central">Excluded result</text><text class="ts" x="548" y="186" text-anchor="middle" dominant-baseline="central">restricted · prohibited · local-only</text></g>
+<text class="ts" x="40" y="238" text-anchor="start">Mechanical only when this is the runtime's sole route to content.</text>
+<text class="ts" x="40" y="256" text-anchor="start">Native file access remains compliance, not confinement; brokered mode is not implemented.</text>
+</svg>

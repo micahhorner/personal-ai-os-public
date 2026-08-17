@@ -1,0 +1,15 @@
+<svg width="100%" viewBox="0 0 680 250" role="img">
+<title>AI OS flow — Stop &amp; Recover (user walkthrough)</title>
+<desc>The stop-and-recover flow from the user's view: you say stop or flip the kill switch; all AI writes halt, the journal shows what happened, and a checkpoint restores any earlier state; you get an instant stop and full recoverability.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+<text class="th" x="40" y="26">Stop &amp; recover (Flow 11)</text>
+<text class="ts" x="130" y="52" text-anchor="middle">YOU DO</text>
+<text class="ts" x="340" y="52" text-anchor="middle">BEHIND THE SCENES</text>
+<text class="ts" x="550" y="52" text-anchor="middle">YOU GET</text>
+<g class="c-blue"><rect x="40" y="60" width="180" height="154" rx="12" stroke-width="0.5"/><text class="th" x="56" y="88" text-anchor="start">Say "Stop", or set</text><text class="th" x="56" y="106" text-anchor="start">ai_writes_enabled: false</text><text class="th" x="56" y="124" text-anchor="start"></text><text class="th" x="56" y="142" text-anchor="start">If needed: "Restore the</text><text class="th" x="56" y="160" text-anchor="start">checkpoint from before</text><text class="th" x="56" y="178" text-anchor="start">that change."</text></g>
+<line x1="220" y1="137" x2="250" y2="137" class="arr" marker-end="url(#arrow)"/>
+<g class="c-amber"><rect x="250" y="60" width="180" height="154" rx="12" stroke-width="0.5"/><text class="ts" x="266" y="88" text-anchor="start">Kill switch: every runtime +</text><text class="ts" x="266" y="106" text-anchor="start">script refuses all writes</text><text class="ts" x="266" y="124" text-anchor="start">Journal shows what happened</text><text class="ts" x="266" y="142" text-anchor="start">Checkpoints restore any exact</text><text class="ts" x="266" y="160" text-anchor="start">earlier state (your --confirm)</text></g>
+<line x1="430" y1="137" x2="460" y2="137" class="arr" marker-end="url(#arrow)"/>
+<g class="c-green"><rect x="460" y="60" width="180" height="154" rx="12" stroke-width="0.5"/><text class="ts" x="476" y="88" text-anchor="start">All AI writing stopped;</text><text class="ts" x="476" y="106" text-anchor="start">your files stay yours</text><text class="ts" x="476" y="124" text-anchor="start">Any earlier state restorable,</text><text class="ts" x="476" y="142" text-anchor="start">with a plain guide</text></g>
+<text class="ts" x="40" y="238" text-anchor="start">Your notes are always just files. Nothing about this system can hold your knowledge hostage — that's the point.</text>
+</svg>

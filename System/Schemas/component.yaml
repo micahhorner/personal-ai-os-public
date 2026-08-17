@@ -1,0 +1,31 @@
+# Base contract for every system component (capabilities, agents, workflows,
+# scripts, templates, schemas, adapters, operations). Spec §29, single-file
+# model DEC-024: the contract lives in the component's own frontmatter.
+id: schema-component
+schema: component
+schema_version: 1.2.0   # +cadence_days (knowledge-freshness: workflow last-run tracking)
+applies_to: {file: [component-frontmatter]}
+required: [id, name, component_type, status, version,
+           reads, writes, permissions, dependencies, tests, documentation,
+           created, updated]   # summary carries the description (purpose was a duplicate)
+fields:
+  component_type: {vocab: component_types}
+  status: {vocab: component_status}
+  # workflows only: declaring a cadence opts the workflow into last-run/overdue
+  # tracking (`aios workflow`, health) — a domain registers its own freshness
+  # check by shipping a cadenced workflow file; there is no other mechanism
+  cadence_days: {type: int}
+type_extensions:
+  capability: {required: []}   # consolidates is historical lineage metadata — new capabilities consolidate nothing (pressure-test P-1)
+  agent:  {required: [role, context_scope, capabilities_used, prohibited_actions]}
+  workflow: {required: []}          # base contract only
+  # scripts, templates, schemas, and adapters are system artifacts changed via
+  # the developer/amendment lane, not the scaffold→activate lifecycle (v1
+  # scope, release-audit H-03); their conventions are documented where each
+  # type lives, and they carry no activation status.
+deprecation_fields: [deprecated, replaced_by, migration]   # only when used
+rules:
+  - Components may not grant themselves permissions.
+  - An agent's writes may never include its own contract file.
+  - Activation requires listed tests that exist AND a recorded passing result
+    at the component's current version (System/Tests/results/<id>.yaml).

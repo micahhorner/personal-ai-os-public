@@ -1,0 +1,55 @@
+schema_version: 1.1.0
+id: migration-013-about-stamp-from-1-56-0
+version_target: system_version
+source_distribution: personal-ai-os
+source_identity: 5a22ba07b0f1658d0b8fcdfb11ddfb46981670ca1323f15140603df1563072a1
+from_version: 1.56.0
+to_version: 1.64.6
+prerequisites: []
+content_selector:
+  all: true
+transform:
+  replace_exact_files:
+  - path: 00 Inbox/_ABOUT.md
+    old_sha256: 047a0d38a57c1a781d2966a196a4e20752c5775a7582f780681e2e224f4b2ab1
+    payload: payloads/00-inbox-about.payload
+    new_sha256: 4861850c0a9f587f7f7c5b5d6b44792a736d3f295920f606f133770d68d54396
+  - path: 10 Projects/_ABOUT.md
+    old_sha256: 0961ac80dadde20ff707762447c47c0bb086117a3fab60026f5cd47ed202e546
+    payload: payloads/10-projects-about.payload
+    new_sha256: ce7d04de4a25e78ef5e017532a43fa0f6aac61da8442a08052049290e465d30f
+  - path: 20 Knowledge/_ABOUT.md
+    old_sha256: f898f8df3e545a92f0a31b91f1e6569e98fbeaddaf19d2f632a9b41ea34c6492
+    payload: payloads/20-knowledge-about.payload
+    new_sha256: 2ea6d65e5452053f2e6ac76c878d8e75342759d5a8fe5de7014782cbef05c422
+  - path: 30 Sources/_ABOUT.md
+    old_sha256: 1d9bc1af080f124d36262e043e7c61ee122b7da34dd29565669e17c5ffcc2b55
+    payload: payloads/30-sources-about.payload
+    new_sha256: 3835a7d590fedf7048846a098142bccfe84db4b4284b15d69f95bc2c7d5f33c0
+  - path: 40 Outputs/_ABOUT.md
+    old_sha256: 66e790024e689a31ecdd523ef84e8f9b02d998c1e19ca138811f0cd4d248120c
+    payload: payloads/40-outputs-about.payload
+    new_sha256: 3bf7fd52e6aff9216d0208227932c5cde3a6a2ef6a2ca6e7985da1f8d0660ccf
+  - path: 80 User/_ABOUT.md
+    old_sha256: 04c1fd45c1403f8946a9e152ca6919cc4dcbc94aa208aff2a6383abbb9be5c8f
+    payload: payloads/80-user-about.payload
+    new_sha256: 72305b2a3f020f10942a70750bfefa8c0894b795e74eea50c4081267fe00568e
+  - path: 90 Archive/_ABOUT.md
+    old_sha256: 67d7c342d256076481a2928daf8340c66338ba9db6be39cf6725bb624be069c8
+    payload: payloads/90-archive-about.payload
+    new_sha256: e594a9b0229b0876371b89a42956b1f0bf918d54295c758a315713ce79a53d65
+  - path: Decisions/_ABOUT.md
+    old_sha256: 4cf9c07bd1ffd8cbb574cbd89c3cbbb771d9fda85b09ba6f70704e16c8adec11
+    payload: payloads/decisions-about.payload
+    new_sha256: 6da9f2179603cb7f70008214d494f85418b1161a71902a8a87abac0c39c46c76
+  - path: LICENSE.md
+    old_sha256: e5bb369acb43cb5c66c1c1b97cbc45586d78cbe18adba33f9c3ae78e0940d50a
+    payload: payloads/LICENSE.payload
+    new_sha256: 56fad99676a39687067146891cdcc88e068bf364bc91531b97aefd904be903c5
+validation:
+- check: vault-validate
+rollback:
+  strategy: exact-checkpoint
+  automatic_on_validation_failure: true
+idempotency_key: migration-013-about-stamp-from-1-56-0-v3
+manifest_hash: 739ed724b963c8db5e4fa26620cd658cb4dfeaf07d1d8a7591865a04f2b324eb

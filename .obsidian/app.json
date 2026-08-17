@@ -1,0 +1,11 @@
+{
+  "userIgnoreFilters": ["System/", ".obsidian/", ".trash/"],
+  "alwaysUpdateLinks": true,
+  "newFileLocation": "folder",
+  "newFileFolderPath": "00 Inbox",
+  "attachmentFolderPath": "30 Sources/Attachments",
+  "useMarkdownLinks": false,
+  "showUnsupportedFiles": true,
+  "strictLineBreaks": false,
+  "promptDelete": true
+}

@@ -1,0 +1,30 @@
+# Knowledge-freshness configuration (SPEC-knowledge-freshness; PLAN approved 2026-07-16).
+# Presence of this file turns the feature on; removing it turns every check off
+# (rollback-clean). User tuning goes in `80 User/freshness-overrides.yaml`
+# (horizons_days / exempt_types, merged read-only) — never edit this file in an instance.
+schema_version: 1.0.0
+
+# Set once, at install/upgrade time (aios generate stamps it when null).
+# Obligations are NEVER retroactive (owner D5): only notes created or edited
+# after this date accrue review horizons; everything older is grandfathered.
+enforced_since: null
+
+# Review horizons in days, by note type. A type absent here never gets a
+# review clock. Horizons are applied at promotion-to-canon (status: active),
+# never at capture — Inbox items and drafts never accrue review debt.
+horizons_days:
+  note: 90        # claims/findings age fastest
+  entity: 180     # people, orgs, places, products
+  procedure: 365  # how-tos rot slowly but do rot
+  project: 180
+
+# These types don't rot by clock: sources are immutable captures (trusted
+# captures, not trusted knowledge), decisions and outputs are dated records —
+# true when written, never "stale".
+exempt_types: [source, decision, output]
+
+# Ripple disposition vocabulary: ingest-and-connect step 4's nine effects plus
+# the common case. `makes-stale` additionally sets the neighbor's status: stale
+# (bookkeeping only — prose is never auto-rewritten, DEC-039).
+dispositions: [creates, changes, supports, weakens, contradicts, clarifies,
+               connects, makes-stale, enables, no-impact]

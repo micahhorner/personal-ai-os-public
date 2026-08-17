@@ -1,0 +1,48 @@
+{
+  "authority": {
+    "derivation": "estate.discover_mainline_states",
+    "maximum_version": "1.64.1",
+    "minimum_version": "1.43.0",
+    "name": "authoritative-support-coverage",
+    "passed": true,
+    "release_count": 21
+  },
+  "gate": {
+    "checks": [
+      {
+        "name": "authoritative-support-coverage",
+        "passed": true,
+        "release_count": 21
+      },
+      {
+        "name": "target-product-legal-convergence",
+        "passed": true,
+        "source_count": 20
+      },
+      {
+        "name": "source-check-evidence",
+        "passed": true
+      },
+      {
+        "case_count": 22,
+        "name": "mandatory-transaction-faults",
+        "passed": true
+      },
+      {
+        "modes": [
+          "clean-git",
+          "no-git"
+        ],
+        "name": "product-issued-git-and-no-git-recovery",
+        "passed": true
+      }
+    ],
+    "verdict": "passed"
+  },
+  "schema_version": 1,
+  "target": {
+    "commit": "fc39fc55002a3822a201bda3af0bab63d49a03a2",
+    "ref": "refs/tags/v1.64.1",
+    "version": "1.64.1"
+  }
+}

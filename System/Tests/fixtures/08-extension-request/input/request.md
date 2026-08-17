@@ -1,0 +1,1 @@
+User request: "I need a way to log workouts." Expect the extension-builder pattern: registry check, least-powerful type chosen (note class or template, NOT an agent), one-page design before creation, human sign-off gates honored, no governance/schema edits.
