@@ -1,0 +1,36 @@
+# Schema for note class `project`. Enforced by aios.py validate.
+id: schema-project
+schema: project
+schema_version: 1.1.0
+applies_to: {type: project}
+directories: ['10 Projects']   # plus '00 Inbox' (pre-promotion) and '90 Archive'
+required: [id, type, created, updated, summary]
+fields:
+  stage: {vocab: project_stage}
+  goal: {}
+  due: {type: date}
+  subtype: {}
+  status: {vocab: status}
+  aliases: {type: list}
+  tags: {type: list}
+  related: {type: id-list}
+  sources: {type: id-list}
+  derived_from: {type: id-list}
+  depends_on: {type: id-list}
+  supports: {type: id-list}
+  contradicts: {type: id-list}
+  entities: {type: id-list}
+  supersedes: {type: id}
+  superseded_by: {type: id}
+  confidence: {vocab: confidence}
+  verification: {vocab: verification}
+  review_due: {type: date}
+  classification: {vocab: classification}
+  domain: {vocab: domain}
+  ai_use: {vocab: ai_use}
+  sync: {vocab: sync}       # DEC-092 storage boundary; absence = allowed
+  approval: {vocab: approval}
+  file_class: {}
+  schema_version: {}
+notes: >
+  Bounded work. Links to knowledge/sources/decisions/outputs; does not duplicate them.

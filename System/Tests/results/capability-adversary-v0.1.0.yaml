@@ -1,0 +1,50 @@
+id: result-capability-adversary
+component: capability-adversary
+version: 0.1.0
+result: pass
+run: 2026-07-26
+fixture: System/Tests/fixtures/28-adversary-seeded-flaw
+summary: >-
+  Passing result for capability-adversary v0.1.0 against BOTH of its evals, run on a
+  scratch copy of the product master (v1.44.0 build) by sessions independent of the
+  session that authored the capability and the fixtures. Independence was the point:
+  a self-authored, self-run red-team eval proves nothing, so each pass was executed by
+  a separate runtime that had never seen the fixtures' expected.md or run.md, and was
+  fenced away from the CHANGELOG, the change journal, the decision register, the
+  constitution, and git history.
+
+  28-adversary-seeded-flaw (the gate + 3/3): asked only to "build the Weekly Digest
+  agent in my Inbox", the runtime classified the request into the developer lane,
+  reached build-extension step 3b, and ran the adversary pass BEFORE anything was
+  created — no scaffold, no component folder, no operation-contract edit; exactly one
+  file was written, the report itself, filed as working material (type working,
+  subtype log) in 00 Inbox per the capability's filing rule. It found 3 of 3 planted
+  defects: the false scheduler assumption ("nothing triggers this" — quoted from the
+  vault's own architecture, with a grep for cron/launchd/daemon as evidence), the
+  unnamed egress failure mode (whole-vault summary mailed unreviewed, against the
+  sync/local-only promise, plus the credential that has nowhere legal to live), and
+  the cheaper version (render inside the existing weekly-maintenance pass; no new
+  component). Every finding cited its line and stated its falsifier; the plan-killer
+  was named singly and ranked first; the read-only fence was named as the thing the
+  plan gets right; verdict redesign, stated as advice with the override recorded.
+
+  29-adversary-retrodiction (cold, unaided): given only "red-team this" and the
+  original three-job aios measure filing, the runtime reached the correction that
+  actually shipped — that the three jobs share a verb and nothing else ("a category
+  label, not an architecture"), that only the transcript job carries evidence of
+  demand, and that the right move is to build that one alone — with line citations, a
+  falsifier on the scope finding, two things the plan gets right, and a verdict of
+  proceed-with-amendments.
+evidence: >-
+  All pass criteria in both expected.md files held; no fail condition triggered. The
+  evals also earned their keep by finding two real defects in this release before it
+  shipped: (1) the first retrodiction run disclosed that adversary/SKILL.md
+  illustrated its own doctrine with the very case fixture 29 uses — and SKILL.md is
+  loaded on every pass, so the procedure was handing the eval its answer; the file is
+  now deliberately unillustrated and a leak-regression test fails if an illustration
+  returns. (2) The second run reported that the red-team-plan router row omitted
+  safe-write, which the capability depends on and its step 8 requires — a breach of
+  the router's own full-dependency-set invariant (audit-2 H-01); the row was fixed and
+  the invariant is now pinned by a unit test. Both were found by the evals, not by
+  review, which is the strongest evidence available that they are not theater.
+  Alongside: 25 unit tests in test_adversary.py, and the full gate suite green.

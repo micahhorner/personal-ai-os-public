@@ -1,0 +1,16 @@
+# Runtime profile template — copy for each new runtime, fill, certify.
+id: runtime-CHANGE-ME
+runtime_type: hosted | local
+provider:
+model:
+hosted: true
+context_capacity: unknown
+structured_output_reliability: untested
+tool_calling: untested
+file_write_reliability: untested
+allowed_privacy_classifications: [public, internal]   # add 'private' only with may_process_private
+may_process_private: false   # human decision (DEC-013)
+autonomy_level: L0
+certifications: {}        # fixture-name: {result: pass|fail, date: YYYY-MM-DD}
+last_tested:
+fallback_runtime:

@@ -1,0 +1,33 @@
+# Schema for note class `entity`. Enforced by aios.py validate.
+id: schema-entity
+schema: entity
+schema_version: 1.1.0
+applies_to: {type: entity}
+directories: ['20 Knowledge']   # plus '00 Inbox' (pre-promotion) and '90 Archive'
+required: [id, type, created, updated, summary, canonical_name]
+fields:
+  subtype: {vocab: entity_subtypes}
+  status: {vocab: status}
+  aliases: {type: list}
+  tags: {type: list}
+  related: {type: id-list}
+  sources: {type: id-list}
+  derived_from: {type: id-list}
+  depends_on: {type: id-list}
+  supports: {type: id-list}
+  contradicts: {type: id-list}
+  entities: {type: id-list}
+  supersedes: {type: id}
+  superseded_by: {type: id}
+  confidence: {vocab: confidence}
+  verification: {vocab: verification}
+  review_due: {type: date}
+  classification: {vocab: classification}
+  domain: {vocab: domain}
+  ai_use: {vocab: ai_use}
+  sync: {vocab: sync}       # DEC-092 storage boundary; absence = allowed
+  approval: {vocab: approval}
+  file_class: {}
+  schema_version: {}
+notes: >
+  One canonical record per real-world entity; aliases list alternate names; duplicates are merged with approval.

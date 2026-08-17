@@ -1,0 +1,22 @@
+<svg width="100%" viewBox="0 0 680 250" role="img" xmlns="http://www.w3.org/2000/svg">
+<title>Personal AI OS — onboarding journey</title>
+<desc>Eight guided onboarding stages arranged as a snaking path: orientation, privacy and boundaries, identity, goals, structure, first content, retrieval and safe-write demo, and maintenance. Privacy is stage two, before any data is collected.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+<text class="th" x="40" y="28">Onboarding: eight guided stages — privacy before any data</text>
+<g class="c-blue"><rect x="40" y="48" width="132" height="62" rx="10" stroke-width="0.5"/><text class="ts" x="52" y="64" text-anchor="start">1</text><text class="th" x="106" y="82" text-anchor="middle" dominant-baseline="central">Orientation</text><text class="ts" x="106" y="100" text-anchor="middle" dominant-baseline="central">&amp; consent</text></g>
+<g class="c-amber"><rect x="196" y="48" width="132" height="62" rx="10" stroke-width="0.5"/><text class="ts" x="208" y="64" text-anchor="start">2</text><text class="th" x="262" y="82" text-anchor="middle" dominant-baseline="central">Privacy</text><text class="ts" x="262" y="100" text-anchor="middle" dominant-baseline="central">&amp; boundaries</text></g>
+<g class="c-blue"><rect x="352" y="48" width="132" height="62" rx="10" stroke-width="0.5"/><text class="ts" x="364" y="64" text-anchor="start">3</text><text class="th" x="418" y="82" text-anchor="middle" dominant-baseline="central">Identity</text><text class="ts" x="418" y="100" text-anchor="middle" dominant-baseline="central">roles · domains</text></g>
+<g class="c-blue"><rect x="508" y="48" width="132" height="62" rx="10" stroke-width="0.5"/><text class="ts" x="520" y="64" text-anchor="start">4</text><text class="th" x="574" y="82" text-anchor="middle" dominant-baseline="central">Goals</text><text class="ts" x="574" y="100" text-anchor="middle" dominant-baseline="central">&amp; info inventory</text></g>
+<line x1="172" y1="79" x2="196" y2="79" class="arr" marker-end="url(#arrow)"/>
+<line x1="328" y1="79" x2="352" y2="79" class="arr" marker-end="url(#arrow)"/>
+<line x1="484" y1="79" x2="508" y2="79" class="arr" marker-end="url(#arrow)"/>
+<line x1="574" y1="110" x2="574" y2="150" class="arr" marker-end="url(#arrow)"/>
+<g class="c-blue"><rect x="508" y="150" width="132" height="62" rx="10" stroke-width="0.5"/><text class="ts" x="520" y="166" text-anchor="start">5</text><text class="th" x="574" y="184" text-anchor="middle" dominant-baseline="central">Structure</text><text class="ts" x="574" y="202" text-anchor="middle" dominant-baseline="central">&amp; terminology</text></g>
+<g class="c-blue"><rect x="352" y="150" width="132" height="62" rx="10" stroke-width="0.5"/><text class="ts" x="364" y="166" text-anchor="start">6</text><text class="th" x="418" y="184" text-anchor="middle" dominant-baseline="central">First content</text><text class="ts" x="418" y="202" text-anchor="middle" dominant-baseline="central">see it work</text></g>
+<g class="c-blue"><rect x="196" y="150" width="132" height="62" rx="10" stroke-width="0.5"/><text class="ts" x="208" y="166" text-anchor="start">7</text><text class="th" x="262" y="184" text-anchor="middle" dominant-baseline="central">Retrieval</text><text class="ts" x="262" y="202" text-anchor="middle" dominant-baseline="central">+ safe-write demo</text></g>
+<g class="c-green"><rect x="40" y="150" width="132" height="62" rx="10" stroke-width="0.5"/><text class="ts" x="52" y="166" text-anchor="start">8</text><text class="th" x="106" y="184" text-anchor="middle" dominant-baseline="central">Maintenance</text><text class="ts" x="106" y="202" text-anchor="middle" dominant-baseline="central">prefs + done</text></g>
+<line x1="508" y1="181" x2="484" y2="181" class="arr" marker-end="url(#arrow)"/>
+<line x1="352" y1="181" x2="328" y2="181" class="arr" marker-end="url(#arrow)"/>
+<line x1="196" y1="181" x2="172" y2="181" class="arr" marker-end="url(#arrow)"/>
+<text class="ts" x="40" y="238" text-anchor="start">Stage 2 sets privacy before any personal data is collected. Re-onboarding re-runs on major role or life changes.</text>
+</svg>

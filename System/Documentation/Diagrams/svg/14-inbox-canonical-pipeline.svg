@@ -1,0 +1,34 @@
+<svg width="100%" viewBox="0 0 680 452" role="img" xmlns="http://www.w3.org/2000/svg">
+<title>Personal AI OS — inbox to canonical pipeline</title>
+<desc>The ingest-and-connect pipeline moves captured material from the Inbox through dedupe, preservation as an immutable source, extraction, triage into a delta register, and connection. Triage classifies every finding into one of four outcome families before anything is built. Connection then assesses nine effects, each landing on one of four mechanical outcomes.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+<text class="th" x="40" y="28">From captured material to connected knowledge — the ingest pipeline</text>
+<g class="c-teal"><rect x="40" y="46" width="168" height="60" rx="10" stroke-width="0.5"/><text class="th" x="124" y="70" text-anchor="middle" dominant-baseline="central">00 Inbox</text><text class="ts" x="124" y="88" text-anchor="middle" dominant-baseline="central">oldest first</text></g>
+<g class="c-blue"><rect x="256" y="46" width="168" height="60" rx="10" stroke-width="0.5"/><text class="th" x="340" y="70" text-anchor="middle" dominant-baseline="central">Dedupe</text><text class="ts" x="340" y="88" text-anchor="middle" dominant-baseline="central">resolve vs canon</text></g>
+<g class="c-blue"><rect x="472" y="46" width="168" height="60" rx="10" stroke-width="0.5"/><text class="th" x="556" y="70" text-anchor="middle" dominant-baseline="central">Preserve</text><text class="ts" x="556" y="88" text-anchor="middle" dominant-baseline="central">immutable source</text></g>
+<g class="c-blue"><rect x="40" y="142" width="168" height="60" rx="10" stroke-width="0.5"/><text class="th" x="124" y="166" text-anchor="middle" dominant-baseline="central">Extract</text><text class="ts" x="124" y="184" text-anchor="middle" dominant-baseline="central">decisions · claims · Qs</text></g>
+<g class="c-amber"><rect x="256" y="142" width="168" height="60" rx="10" stroke-width="0.5"/><text class="th" x="340" y="166" text-anchor="middle" dominant-baseline="central">Triage</text><text class="ts" x="340" y="184" text-anchor="middle" dominant-baseline="central">delta register</text></g>
+<g class="c-purple"><rect x="472" y="142" width="168" height="60" rx="10" stroke-width="0.5"/><text class="th" x="556" y="166" text-anchor="middle" dominant-baseline="central">Connect</text><text class="ts" x="556" y="184" text-anchor="middle" dominant-baseline="central">assess effects</text></g>
+<line x1="208" y1="76" x2="256" y2="76" class="arr" marker-end="url(#arrow)"/>
+<line x1="424" y1="76" x2="472" y2="76" class="arr" marker-end="url(#arrow)"/>
+<path d="M556 106 L556 124 L124 124 L124 142" fill="none" class="arr" marker-end="url(#arrow)"/>
+<line x1="208" y1="172" x2="256" y2="172" class="arr" marker-end="url(#arrow)"/>
+<line x1="424" y1="172" x2="472" y2="172" class="arr" marker-end="url(#arrow)"/>
+<text class="ts" x="40" y="228" text-anchor="start">Triage families, before any note is built: Knowledge · Action · Governance · Nothing.</text>
+<text class="ts" x="40" y="252" text-anchor="start">Connect then assesses nine effects — each lands on one of four outcomes:</text>
+<g class="c-amber"><rect x="40" y="264" width="88" height="26" rx="6" stroke-width="0.5"/><text class="ts" x="84" y="277" text-anchor="middle" dominant-baseline="central">creates</text></g>
+<g class="c-amber"><rect x="134" y="264" width="88" height="26" rx="6" stroke-width="0.5"/><text class="ts" x="178" y="277" text-anchor="middle" dominant-baseline="central">changes</text></g>
+<g class="c-amber"><rect x="228" y="264" width="88" height="26" rx="6" stroke-width="0.5"/><text class="ts" x="272" y="277" text-anchor="middle" dominant-baseline="central">supports</text></g>
+<g class="c-amber"><rect x="322" y="264" width="88" height="26" rx="6" stroke-width="0.5"/><text class="ts" x="366" y="277" text-anchor="middle" dominant-baseline="central">weakens</text></g>
+<g class="c-red"><rect x="416" y="264" width="88" height="26" rx="6" stroke-width="0.5"/><text class="ts" x="460" y="277" text-anchor="middle" dominant-baseline="central">contradicts</text></g>
+<g class="c-amber"><rect x="40" y="296" width="88" height="26" rx="6" stroke-width="0.5"/><text class="ts" x="84" y="309" text-anchor="middle" dominant-baseline="central">clarifies</text></g>
+<g class="c-amber"><rect x="134" y="296" width="88" height="26" rx="6" stroke-width="0.5"/><text class="ts" x="178" y="309" text-anchor="middle" dominant-baseline="central">connects</text></g>
+<g class="c-amber"><rect x="228" y="296" width="88" height="26" rx="6" stroke-width="0.5"/><text class="ts" x="272" y="309" text-anchor="middle" dominant-baseline="central">makes-stale</text></g>
+<g class="c-amber"><rect x="322" y="296" width="88" height="26" rx="6" stroke-width="0.5"/><text class="ts" x="366" y="309" text-anchor="middle" dominant-baseline="central">enables</text></g>
+<text class="ts" x="40" y="354" text-anchor="start">→ four outcomes (nothing left uncertain):</text>
+<g class="c-green"><rect x="40" y="366" width="140" height="40" rx="8" stroke-width="0.5"/><text class="ts" x="110" y="386" text-anchor="middle" dominant-baseline="central">auto-updated</text></g>
+<g class="c-green"><rect x="196" y="366" width="140" height="40" rx="8" stroke-width="0.5"/><text class="ts" x="266" y="386" text-anchor="middle" dominant-baseline="central">marked stale</text></g>
+<g class="c-green"><rect x="352" y="366" width="140" height="40" rx="8" stroke-width="0.5"/><text class="ts" x="422" y="386" text-anchor="middle" dominant-baseline="central">queued for human</text></g>
+<g class="c-green"><rect x="508" y="366" width="140" height="40" rx="8" stroke-width="0.5"/><text class="ts" x="578" y="386" text-anchor="middle" dominant-baseline="central">confirmed unaffected</text></g>
+<text class="ts" x="40" y="432" text-anchor="start">Contradictions preserve both records and surface to the human — never resolved by deletion.</text>
+</svg>

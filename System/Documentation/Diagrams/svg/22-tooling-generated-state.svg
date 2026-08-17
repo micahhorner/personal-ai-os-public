@@ -1,0 +1,37 @@
+<svg width="100%" viewBox="0 0 680 372" role="img" xmlns="http://www.w3.org/2000/svg">
+<title>Personal AI OS — tooling and generated state</title>
+<desc>All 32 aios.py subcommands, grouped into read/report, documentation gates, build, change and system. Generate publishes three separately atomic domains: System/Generated, tool-owned skill projections, then freshness registry and ledger by compare-and-swap. System/Logs is mixed state, not disposable as a directory.</desc>
+<text class="th" x="40" y="28">The tooling surface and its bounded publication domains</text>
+<g class="c-blue"><rect x="40" y="48" width="300" height="310" rx="12" stroke-width="0.5"/>
+ <text class="th" x="56" y="72" text-anchor="start">aios.py — 32 subcommands</text>
+ <text class="th" x="56" y="98" text-anchor="start">Read / report</text>
+ <text class="ts" x="56" y="116" text-anchor="start">search · read · validate · health · checkup</text>
+ <text class="ts" x="56" y="134" text-anchor="start">links · dupes · review-due · vocab · certify</text>
+ <text class="ts" x="56" y="152" text-anchor="start">measure · okf-check</text>
+ <text class="th" x="56" y="180" text-anchor="start">Documentation gates</text>
+ <text class="ts" x="56" y="198" text-anchor="start">doc-check · doc-commands · doc-audit</text>
+ <text class="ts" x="56" y="216" text-anchor="start">doc-paths · docgen</text>
+ <text class="th" x="56" y="244" text-anchor="start">Build</text>
+ <text class="ts" x="56" y="262" text-anchor="start">scaffold · import · extract · okf-import</text>
+ <text class="th" x="56" y="290" text-anchor="start">Change</text>
+ <text class="ts" x="56" y="308" text-anchor="start">migrate · upgrade · pack · ripple · resolve</text>
+ <text class="ts" x="56" y="326" text-anchor="start">dedupe-batch · workflow · okf-export</text>
+ <text class="th" x="56" y="350" text-anchor="start">System &#160;&#160;checkpoint · rollback · generate</text>
+</g>
+<g class="c-gray"><rect x="360" y="48" width="280" height="310" rx="12" stroke-width="0.5"/>
+ <text class="th" x="376" y="72" text-anchor="start">Generated state (System/Generated)</text>
+ <text class="ts" x="376" y="98" text-anchor="start">component-index.json</text>
+ <text class="ts" x="376" y="118" text-anchor="start">support-index.json</text>
+ <text class="ts" x="376" y="138" text-anchor="start">ops-registry.json</text>
+ <text class="ts" x="376" y="158" text-anchor="start">index-note.md</text>
+ <text class="ts" x="376" y="178" text-anchor="start">index-decision.md</text>
+ <text class="ts" x="376" y="198" text-anchor="start">index-system-doc.md</text>
+ <text class="ts" x="376" y="218" text-anchor="start">reverse-relationships.md</text>
+ <text class="ts" x="376" y="238" text-anchor="start">system-reference.md</text>
+ <text class="ts" x="376" y="258" text-anchor="start">implementation-status.md</text>
+ <text class="ts" x="376" y="278" text-anchor="start">.digests.json (tamper check)</text>
+ <text class="ts" x="376" y="310" text-anchor="start">Domain 1: complete Generated tree</text>
+ <text class="ts" x="376" y="330" text-anchor="start">Domain 2: tool-owned skill projections</text>
+ <text class="ts" x="376" y="350" text-anchor="start">Domain 3: freshness registry+ledger CAS</text>
+</g>
+</svg>

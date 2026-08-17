@@ -1,0 +1,23 @@
+# Folder registry — stable folder IDs → paths (DEC-004 indirection).
+# Renameable content folders (10 Projects, 20 Knowledge, 30 Sources, 40 Outputs)
+# resolve HERE via vaultpaths.rel_folder — renaming one = update this file + run
+# link validation (a migration, not a breakage). The reserved dirs (System,
+# 80 User, 00 Inbox, 90 Archive; Vault Profile §9) are fixed and referenced literally.
+# Optional per-folder attribute: `conventions: foreign` — legacy-convention content
+# converging gradually; validate collapses its no-frontmatter warnings to one count (F-4).
+id: schema-folder-registry
+schema_version: 1.1.0
+folders:
+  inbox:        {path: "00 Inbox",     purpose: capture-and-quarantine}
+  projects:     {path: "10 Projects",  purpose: bounded-work}   # project notes (type: project) + working material (type: working, DEC-096)
+  knowledge:    {path: "20 Knowledge", purpose: canonical-knowledge}
+  decisions:    {path: "Decisions",    purpose: decision-records}   # the routed decisions space (DEC-095) — as findable as the Inbox
+  sources:      {path: "30 Sources",   purpose: immutable-evidence}
+  attachments:  {path: "30 Sources/Attachments", purpose: binary-evidence}
+  outputs:      {path: "40 Outputs",   purpose: deliverables}
+  user:         {path: "80 User",      purpose: personal-configuration}
+  archive:      {path: "90 Archive",   purpose: inactive-material}
+  system:       {path: "System",       purpose: rules-and-machinery}
+  generated:    {path: "System/Generated", purpose: rebuildable-state}
+  logs:         {path: "System/Logs",  purpose: mixed-runtime-state}   # ordinary reports may be disposable; freshness history and obligations are durable/live (DEC-121)
+  journal:      {path: "System/Journal", purpose: canonical-audit-history}

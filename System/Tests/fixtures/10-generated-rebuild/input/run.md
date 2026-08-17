@@ -1,0 +1,1 @@
+rm -r System/Generated on a scratch copy → aios generate → identical file list on second run → aios validate green. Covered by test_aios.py::TestGenerate and executed in the portability suite.

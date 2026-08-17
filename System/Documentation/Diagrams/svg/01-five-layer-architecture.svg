@@ -1,0 +1,36 @@
+<svg width="100%" viewBox="0 0 680 444" role="img" xmlns="http://www.w3.org/2000/svg">
+<title>Personal AI OS five-layer architecture</title>
+<desc>A vertical stack of five layers, from the durable portable core at top down to generated and runtime state. Generated publications are disposable; System/Logs is mixed state whose freshness history and obligations must be preserved. A footnote notes the AI is a swappable guest at every layer.</desc>
+<text class="th" x="40" y="30">Personal AI OS — the five-layer stack</text>
+<g class="c-blue">
+ <rect x="40" y="52" width="600" height="62" rx="12" stroke-width="0.5"/>
+ <text class="th" x="74" y="83" text-anchor="middle" dominant-baseline="central" style="font-size:22px">1</text>
+ <text class="th" x="108" y="75" text-anchor="start">Durable portable core</text>
+ <text class="ts" x="108" y="95" text-anchor="start">Your knowledge (00–90 folders) + the System rulebook — plain files you own</text>
+</g>
+<g class="c-teal">
+ <rect x="40" y="126" width="600" height="58" rx="12" stroke-width="0.5"/>
+ <text class="th" x="74" y="155" text-anchor="middle" dominant-baseline="central" style="font-size:22px">2</text>
+ <text class="th" x="108" y="147" text-anchor="start">Personal configuration</text>
+ <text class="ts" x="108" y="167" text-anchor="start">80 User — profile, preferences, privacy rules, onboarding state</text>
+</g>
+<g class="c-purple">
+ <rect x="40" y="196" width="600" height="58" rx="12" stroke-width="0.5"/>
+ <text class="th" x="74" y="225" text-anchor="middle" dominant-baseline="central" style="font-size:22px">3</text>
+ <text class="th" x="108" y="217" text-anchor="start">Governance &amp; operations</text>
+ <text class="ts" x="108" y="237" text-anchor="start">System — rules, schemas, the 15 operations, scripts, tests (protected)</text>
+</g>
+<g class="c-amber">
+ <rect x="40" y="266" width="600" height="58" rx="12" stroke-width="0.5"/>
+ <text class="th" x="74" y="295" text-anchor="middle" dominant-baseline="central" style="font-size:22px">4</text>
+ <text class="th" x="108" y="287" text-anchor="start">Adapters</text>
+ <text class="ts" x="108" y="307" text-anchor="start">Per-runtime translation — CLAUDE.md, .obsidian; translate, never own rules</text>
+</g>
+<g class="c-gray">
+ <rect x="40" y="336" width="600" height="58" rx="12" stroke-width="0.5"/>
+ <text class="th" x="74" y="365" text-anchor="middle" dominant-baseline="central" style="font-size:22px">5</text>
+ <text class="th" x="108" y="357" text-anchor="start">Generated + runtime state</text>
+ <text class="ts" x="108" y="377" text-anchor="start">Generated is disposable · Logs is mixed; preserve freshness history &amp; obligations</text>
+</g>
+<text class="ts" x="40" y="420" text-anchor="start">The AI is a guest at every layer. Swap the AI and the folder — your asset — comes with you.</text>
+</svg>

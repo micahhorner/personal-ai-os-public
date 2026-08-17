@@ -1,0 +1,1 @@
+Copy both inputs into 20 Knowledge/ of a scratch copy (remove file_class: example). Run: aios search --query MARKER --domain shared — expect zero hits under the hosted profile, privacy_excluded_count >= 1, and no marker text in any output. Then aios read --id note-fixture-local-only --domain shared — expect 'content withheld'.

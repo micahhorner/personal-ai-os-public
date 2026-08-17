@@ -1,0 +1,15 @@
+<svg width="100%" viewBox="0 0 680 250" role="img" xmlns="http://www.w3.org/2000/svg">
+<title>AI OS flow — capture and file (user walkthrough)</title>
+<desc>The capture-and-file flow from the user's perspective: you drop a file in the Inbox and say process my inbox; behind the scenes the system preserves the original as a source, extracts notes and decisions, and links them; you get connected, cited notes and an empty inbox.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+<text class="th" x="40" y="26">Capture &amp; file — get something into your knowledge (Flow 2)</text>
+<text class="ts" x="130" y="52" text-anchor="middle">YOU DO</text>
+<text class="ts" x="340" y="52" text-anchor="middle">BEHIND THE SCENES</text>
+<text class="ts" x="550" y="52" text-anchor="middle">YOU GET</text>
+<g class="c-blue"><rect x="40" y="60" width="180" height="154" rx="12" stroke-width="0.5"/><text class="th" x="56" y="86" text-anchor="start">1. Drop a file into</text><text class="th" x="56" y="104" text-anchor="start">   00 Inbox</text><text class="th" x="56" y="150" text-anchor="start">2. Say:</text><text class="ts" x="56" y="172" text-anchor="start">"Process my inbox."</text></g>
+<line x1="220" y1="137" x2="250" y2="137" class="arr" marker-end="url(#arrow)"/>
+<g class="c-amber"><rect x="250" y="60" width="180" height="154" rx="12" stroke-width="0.5"/><text class="ts" x="266" y="86" text-anchor="start">Preserves your original</text><text class="ts" x="266" y="102" text-anchor="start">as a Source (never edited)</text><text class="ts" x="266" y="128" text-anchor="start">Extracts notes, decisions,</text><text class="ts" x="266" y="144" text-anchor="start">and open questions</text><text class="ts" x="266" y="170" text-anchor="start">Dedupes + links to what</text><text class="ts" x="266" y="186" text-anchor="start">already exists</text></g>
+<line x1="430" y1="137" x2="460" y2="137" class="arr" marker-end="url(#arrow)"/>
+<g class="c-green"><rect x="460" y="60" width="180" height="154" rx="12" stroke-width="0.5"/><text class="ts" x="476" y="90" text-anchor="start">Connected notes you can</text><text class="ts" x="476" y="106" text-anchor="start">search — each cited back</text><text class="ts" x="476" y="122" text-anchor="start">to the original</text><text class="ts" x="476" y="164" text-anchor="start">Inbox empty; your</text><text class="ts" x="476" y="180" text-anchor="start">originals kept safe</text></g>
+<text class="ts" x="40" y="238" text-anchor="start">It narrates what it did: "team-sync.md → preserved as a source; extracted 1 decision; linked to Project Atlas &amp; Dana."</text>
+</svg>
