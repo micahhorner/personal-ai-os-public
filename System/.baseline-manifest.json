@@ -1,6 +1,6 @@
 {
  "derived": {
-  "README.md": "097aa33630449bc74eb218fdd6461b42755d5ac4d91cbc7e5c6f788684780709",
+  "README.md": "5c545602eb044d41015e94446d186443ac0dafdba0cc397e824c7622f8906b82",
   "System/Architecture/Canonical Architecture Specification.md": "a66aa78503ffd34e04af8352f8e850df609c37d31c5f6a8f2baa96df21a655f0",
   "System/Documentation/Glossary.md": "bfacf0665e40c9167afafd7bc46c603a7ad81cb74e1aec432c6ddd4daa862273",
   "System/Scripts/cmd/docgen.py": "c7a2ef04478361a76613575816a8d4f8d1c6cc0438470270459083a78dec8718",
@@ -12,7 +12,7 @@
  "files": {
   "CLAUDE.md": "f7bf76373de9fccf627e34ef31d356073b904039f7e30e1fdd7e940da546743d",
   "CONTRIBUTING.md": "252f04b22e87f8cc1a1abe87e3c6f273bef25792a2304d07fadfcacb2b190f5a",
-  "README.md": "611cc0829c0df94cade31a3387634115c8fab0dccf6bc9c54d1ddc693c63653e",
+  "README.md": "f30145f5324f386108526e9711dc96112f6b79ee1fdcf847950f189bbdec3e72",
   "SECURITY.md": "9cdbd2fe8fcf97dced9ca3f5d1d1bce8cf487eead7806d3903a8a5c50dee7953",
   "START-HERE.md": "bbc841bb1812c299117b1424241f4bf4628d58bd90ea3bd7493a26af3dde9838",
   "System/Adapters/Claude/Claude Adapter Guide.md": "fb3db177d659d26a3d22fd9a8c73cff65cbac4213da7d1ccc831d0594d9776a3",
@@ -684,6 +684,6 @@
   "System/Workflows/weekly-maintenance.md": "94e3c022236511c861da0b49a8992b83371539b59d89c06ac9097a8c88f6fa93",
   "pyproject.toml": "5aaabddff4b76f19d7f57e3bcc7b129c70661ff50a4f19ab8900fbbeac586eb5"
  },
- "generated_at": "2026-08-16T23:22:05",
+ "generated_at": "2026-08-17T00:32:46",
  "system_version": "1.64.6"
 }
