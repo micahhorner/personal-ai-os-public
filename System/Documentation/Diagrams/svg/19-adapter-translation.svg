@@ -1,0 +1,24 @@
+<svg width="100%" viewBox="0 0 680 312" role="img" xmlns="http://www.w3.org/2000/svg">
+<title>Personal AI OS — adapter translation</title>
+<desc>The fifteen canonical vault operations are the contract; each runtime adapter maps them to native abilities via an operation-mapping file. Examples show how the Claude adapter expresses search, read, apply-change, checkpoint, and validate.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+<text class="th" x="40" y="28">One canonical contract, many transports — the adapter translates, never owns rules</text>
+<text class="ts" x="40" y="52" text-anchor="start">vault.* operation (canonical)</text>
+<text class="ts" x="320" y="52" text-anchor="start">Claude adapter transport</text>
+<g class="c-amber"><rect x="40" y="60" width="220" height="34" rx="8" stroke-width="0.5"/><text class="th" x="150" y="77" text-anchor="middle" dominant-baseline="central">vault.search</text></g>
+<line x1="260" y1="77" x2="320" y2="77" class="arr" marker-end="url(#arrow)"/>
+<g class="c-blue"><rect x="320" y="60" width="320" height="34" rx="8" stroke-width="0.5"/><text class="ts" x="336" y="77" text-anchor="start" dominant-baseline="central">aios search --domain — privacy-filtered</text></g>
+<g class="c-amber"><rect x="40" y="104" width="220" height="34" rx="8" stroke-width="0.5"/><text class="th" x="150" y="121" text-anchor="middle" dominant-baseline="central">vault.read</text></g>
+<line x1="260" y1="121" x2="320" y2="121" class="arr" marker-end="url(#arrow)"/>
+<g class="c-blue"><rect x="320" y="104" width="320" height="34" rx="8" stroke-width="0.5"/><text class="ts" x="336" y="121" text-anchor="start" dominant-baseline="central">aios read --id --domain — privacy-filtered</text></g>
+<g class="c-amber"><rect x="40" y="148" width="220" height="34" rx="8" stroke-width="0.5"/><text class="th" x="150" y="165" text-anchor="middle" dominant-baseline="central">vault.apply_change</text></g>
+<line x1="260" y1="165" x2="320" y2="165" class="arr" marker-end="url(#arrow)"/>
+<g class="c-blue"><rect x="320" y="148" width="320" height="34" rx="8" stroke-width="0.5"/><text class="ts" x="336" y="165" text-anchor="start" dominant-baseline="central">native file edit AFTER preflight</text></g>
+<g class="c-amber"><rect x="40" y="192" width="220" height="34" rx="8" stroke-width="0.5"/><text class="th" x="150" y="209" text-anchor="middle" dominant-baseline="central">vault.checkpoint</text></g>
+<line x1="260" y1="209" x2="320" y2="209" class="arr" marker-end="url(#arrow)"/>
+<g class="c-blue"><rect x="320" y="192" width="320" height="34" rx="8" stroke-width="0.5"/><text class="ts" x="336" y="209" text-anchor="start" dominant-baseline="central">aios checkpoint -m &lt;label&gt;</text></g>
+<g class="c-amber"><rect x="40" y="236" width="220" height="34" rx="8" stroke-width="0.5"/><text class="th" x="150" y="253" text-anchor="middle" dominant-baseline="central">vault.validate</text></g>
+<line x1="260" y1="253" x2="320" y2="253" class="arr" marker-end="url(#arrow)"/>
+<g class="c-blue"><rect x="320" y="236" width="320" height="34" rx="8" stroke-width="0.5"/><text class="ts" x="336" y="253" text-anchor="start" dominant-baseline="central">aios validate</text></g>
+<text class="ts" x="40" y="294" text-anchor="start">The contract is canonical; each runtime ships operation-mapping.yaml. Current adapters: Claude, Local runtime, Obsidian.</text>
+</svg>

@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>How Personal AI OS works</title>
+  <meta name="description" content="An accurate end-to-end explanation of Personal AI OS: owned files, written procedures, filtered retrieval, reviewed writes, validation and recovery.">
+  <style>
+    :root{--bg:#09110f;--panel:#12201c;--text:#eef3f1;--muted:#a8bbb5;--mint:#a8d9ce;--amber:#efc274;--coral:#ee9a91;--line:#35564e;--max:1180px}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font:18px/1.6 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}a{color:var(--mint)}
+    header,main,footer{width:min(var(--max),calc(100% - 40px));margin:auto}header{padding:72px 0 40px}.eyebrow{color:var(--mint);font:700 14px/1.2 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.08em;text-transform:uppercase}h1{max-width:900px;margin:.25em 0;font-size:clamp(44px,7vw,86px);line-height:1.02;letter-spacing:-.04em}h2{font-size:clamp(30px,4vw,48px);line-height:1.1;margin:0 0 18px}h3{font-size:23px;margin:0 0 6px}.lede{max-width:820px;color:#cfdbd7;font-size:clamp(20px,2.4vw,28px)}
+    .hero{border:1px solid var(--line);border-radius:24px;overflow:hidden;background:#0d1714}.hero img{display:block;width:100%;height:auto}.section{padding:70px 0;border-top:1px solid #20332d}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}.card{padding:28px;border:1px solid var(--line);border-radius:18px;background:var(--panel)}.card p{margin:8px 0 0;color:#c4d0cc}.read{border-color:#79b8aa}.write{border-color:#d7a451}.boundary{border-color:#d67970;background:#221816}.boundary h3{color:var(--coral)}
+    .diagram{margin-top:30px;border:1px solid var(--line);border-radius:20px;overflow:hidden;background:#09110f}.diagram img{display:block;width:100%;height:auto}.proof{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.proof div{padding:22px;border:1px solid var(--line);border-radius:16px;background:var(--panel)}.proof strong{display:block;color:var(--mint);font-size:28px}.fine{color:var(--muted);font-size:15px}footer{padding:35px 0 70px;color:var(--muted);border-top:1px solid #20332d}
+    @media(max-width:760px){.grid,.proof{grid-template-columns:1fr}header{padding-top:44px}.section{padding:48px 0}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="eyebrow">Personal AI OS · v1.64.5</div>
+    <h1>The AI can change. Your operating context stays yours.</h1>
+    <p class="lede">Personal AI OS is a human-owned folder containing durable knowledge, written rules, repeatable procedures, deterministic checks and recovery evidence.</p>
+  </header>
+
+  <main>
+    <figure class="hero"><img src="ai-os-hero-v2.png" alt="An abstract human-owned folder surrounded by orderly connections to replaceable AI tools, without security-wall imagery"></figure>
+
+    <section class="section">
+      <h2>What happens when you ask it to do something</h2>
+      <div class="grid">
+        <article class="card"><h3>1. The runtime loads the vault’s rules</h3><p>The manifest identifies the active profile and write switch. The Runtime Kernel supplies standing law. The Task Router decides what instructions this request needs.</p></article>
+        <article class="card"><h3>2. One written procedure is selected</h3><p>Fourteen core capabilities cover recurring jobs, and the shipped open pack adds one active capability. Three agents and two workflows coordinate broader routines. The runtime does not need the entire manual in every prompt.</p></article>
+        <article class="card read"><h3>3a. Read tasks use filtered retrieval</h3><p>Search begins from compact generated indexes, applies domain and privacy rules, opens selected records, labels note content as untrusted data, and reports which records qualified.</p></article>
+        <article class="card write"><h3>3b. Write tasks pass proportional controls</h3><p>Supported writers check the kill switch and safe paths. Consequential changes scan dependents and leave records. Protected changes require a reviewed plan, exact hash, confirmation, checkpoint and validation.</p></article>
+        <article class="card"><h3>4. Code handles deterministic mechanics</h3><p>Thirty-six documented commands perform checks, retrieval, publishing, recovery, imports, migrations, packaging and upgrades. Judgment remains in procedures; checking remains in code.</p></article>
+        <article class="card"><h3>5. The result remains ordinary files</h3><p>Knowledge, sources, decisions, outputs, preferences, add-ons, rules, tests and recovery artifacts live in the folder. Generated views can be rebuilt; logs are mixed state and are not uniformly disposable.</p></article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>The complete high-level architecture</h2>
+      <p>The diagram follows a request from replaceable runtime through rule loading, routing, procedures, read/write paths and durable storage. A text companion is available as <a href="ai-os-architecture-full.md">plain Markdown</a>.</p>
+      <figure class="diagram"><img src="ai-os-architecture-full.svg" alt="Full Personal AI OS architecture diagram; the complete text equivalent follows in the linked Markdown companion"></figure>
+    </section>
+
+    <section class="section">
+      <h2>The honest boundary</h2>
+      <div class="grid">
+        <article class="card"><h3>Mechanically enforced on supported routes</h3><p>Privacy-filtered search and read, write kill switch, protected-target review, safe-path checks, concurrent-edit refusal, atomic publication, validation and product-issued recovery.</p></article>
+        <article class="card boundary"><h3>Not an operating-system sandbox</h3><p>A runtime with native file access can technically open files its OS account can reach. Personal AI OS supplies explicit rules and tested command paths; it does not physically confine the runtime.</p></article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Evidence stays bound to the release</h2>
+      <p>Target-bound machine evidence is distributed separately with the GitHub release assets for tag v1.64.5. In-tree evidence for earlier releases remains historical evidence for those exact tags, not proof for v1.64.5.</p>
+      <p class="fine">Product evidence does not prove perfect AI judgment, universal runtime compatibility, OS sandboxing, independent human usability, or formal external Claude/Codex runtime certification.</p>
+    </section>
+  </main>
+
+  <footer>Personal AI OS v1.64.5 · Free and open source under MIT · Python 3.9+ and PyYAML</footer>
+</body>
+</html>

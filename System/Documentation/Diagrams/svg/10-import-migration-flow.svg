@@ -1,0 +1,27 @@
+<svg width="100%" viewBox="0 0 680 258" role="img" xmlns="http://www.w3.org/2000/svg">
+<title>Personal AI OS — import and migration flow</title>
+<desc>Both importing an external vault and running a numbered migration follow the same rhythm: dry-run, human approval, apply with a checkpoint first, then validate. Both refuse to continue past a validation failure.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+<text class="th" x="40" y="28">Bringing in a vault, and structural change — the same safe rhythm</text>
+<text class="ts" x="40" y="50" text-anchor="start">Import · aios import</text>
+<g class="c-teal"><rect x="40" y="58" width="108" height="56" rx="10" stroke-width="0.5"/><text class="th" x="94" y="80" text-anchor="middle" dominant-baseline="central">External vault</text><text class="ts" x="94" y="98" text-anchor="middle" dominant-baseline="central">(read-only)</text></g>
+<g class="c-blue"><rect x="163" y="58" width="108" height="56" rx="10" stroke-width="0.5"/><text class="th" x="217" y="80" text-anchor="middle" dominant-baseline="central">Dry-run plan</text><text class="ts" x="217" y="98" text-anchor="middle" dominant-baseline="central">preview only</text></g>
+<g class="c-amber"><rect x="286" y="58" width="108" height="56" rx="10" stroke-width="0.5"/><text class="th" x="340" y="80" text-anchor="middle" dominant-baseline="central">Human approval</text><text class="ts" x="340" y="98" text-anchor="middle" dominant-baseline="central">you decide</text></g>
+<g class="c-blue"><rect x="409" y="58" width="108" height="56" rx="10" stroke-width="0.5"/><text class="th" x="463" y="80" text-anchor="middle" dominant-baseline="central">Apply</text><text class="ts" x="463" y="98" text-anchor="middle" dominant-baseline="central">checkpoint first</text></g>
+<g class="c-green"><rect x="532" y="58" width="108" height="56" rx="10" stroke-width="0.5"/><text class="th" x="586" y="80" text-anchor="middle" dominant-baseline="central">Validate</text><text class="ts" x="586" y="98" text-anchor="middle" dominant-baseline="central">+ one-time marker</text></g>
+<line x1="148" y1="86" x2="163" y2="86" class="arr" marker-end="url(#arrow)"/>
+<line x1="271" y1="86" x2="286" y2="86" class="arr" marker-end="url(#arrow)"/>
+<line x1="394" y1="86" x2="409" y2="86" class="arr" marker-end="url(#arrow)"/>
+<line x1="517" y1="86" x2="532" y2="86" class="arr" marker-end="url(#arrow)"/>
+<text class="ts" x="40" y="148" text-anchor="start">Migration · aios migrate</text>
+<g class="c-purple"><rect x="40" y="156" width="108" height="56" rx="10" stroke-width="0.5"/><text class="th" x="94" y="178" text-anchor="middle" dominant-baseline="central">Numbered NNN</text><text class="ts" x="94" y="196" text-anchor="middle" dominant-baseline="central">migration dir</text></g>
+<g class="c-blue"><rect x="163" y="156" width="108" height="56" rx="10" stroke-width="0.5"/><text class="th" x="217" y="178" text-anchor="middle" dominant-baseline="central">Dry-run</text><text class="ts" x="217" y="196" text-anchor="middle" dominant-baseline="central">preview only</text></g>
+<g class="c-amber"><rect x="286" y="156" width="108" height="56" rx="10" stroke-width="0.5"/><text class="th" x="340" y="178" text-anchor="middle" dominant-baseline="central">Human approval</text><text class="ts" x="340" y="196" text-anchor="middle" dominant-baseline="central">you decide</text></g>
+<g class="c-blue"><rect x="409" y="156" width="108" height="56" rx="10" stroke-width="0.5"/><text class="th" x="463" y="178" text-anchor="middle" dominant-baseline="central">Apply</text><text class="ts" x="463" y="196" text-anchor="middle" dominant-baseline="central">checkpoint first</text></g>
+<g class="c-green"><rect x="532" y="156" width="108" height="56" rx="10" stroke-width="0.5"/><text class="th" x="586" y="178" text-anchor="middle" dominant-baseline="central">Validate</text><text class="ts" x="586" y="196" text-anchor="middle" dominant-baseline="central">refuse on fail</text></g>
+<line x1="148" y1="184" x2="163" y2="184" class="arr" marker-end="url(#arrow)"/>
+<line x1="271" y1="184" x2="286" y2="184" class="arr" marker-end="url(#arrow)"/>
+<line x1="394" y1="184" x2="409" y2="184" class="arr" marker-end="url(#arrow)"/>
+<line x1="517" y1="184" x2="532" y2="184" class="arr" marker-end="url(#arrow)"/>
+<text class="ts" x="40" y="234" text-anchor="start">Import modes — verbatim keeps foreign folders as-is; mapped transforms per rule, quarantining unmapped items to the Inbox.</text>
+</svg>

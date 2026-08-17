@@ -1,0 +1,97 @@
+# SYSTEM-MANIFEST — canonical machine entry point for this Personal AI OS.
+# Humans: read START-HERE.md first. This file is safe to edit by hand;
+# the one setting you may need is runtime.ai_writes_enabled (the kill switch).
+
+system:
+  name: Personal AI OS
+  id: personal-ai-os
+  distribution_id: personal-ai-os   # release-line identity; PMM Engine declares pmm-engine and may not take core-only migrations
+  instance_role: generic-master   # generic-master = product; personal data is PROHIBITED here.
+                                  # Personal instances set this to personal-instance at copy time.
+  system_version: 1.64.5       # self-contained public CI; prior releases remain immutable
+  vault_profile_version: 1.1.0
+  license: LICENSE.md
+
+runtime:
+  # KILL SWITCH — set to false to stop ALL AI writes. Every compliant
+  # runtime adapter and every script in System/Scripts honors this flag.
+  ai_writes_enabled: true
+  active_profile: System/Runtime Profiles/claude-code.yaml
+  default_autonomy_for_uncertified_runtimes: L2   # DEC-026 — everyday validated safe writes work out of the box; L3+ is earned by passing the certification battery. This key had read L0 while `System/Runtime Profiles/claude-code.yaml` and DEC-026 both said L2; nothing reads it, which is exactly why it could disagree with the product for so long.
+
+entrypoints:
+  human: START-HERE.md
+  ai_operator: System/Documentation/AI Operator Manual.md
+  architecture: System/Architecture/Canonical Architecture Specification.md
+  vault_profile: System/Architecture/Portable Vault Profile.md
+  governance: System/Governance/Change Control and Preflight.md
+  decisions: System/Governance/Active Decisions.md   # compact product-local register (delta-audit M-10)
+  privacy: System/Governance/Privacy and Boundaries.md
+  operations: System/Operations/operations.yaml
+  metadata_dictionary: System/Documentation/Metadata and Relationship Dictionary.md
+  onboarding: System/Onboarding/Onboarding Specification.md
+  component_index: System/Generated/component-index.json   # generated (DEC-024); rebuild with aios generate
+  folder_registry: System/Registries/folder-registry.yaml
+  recovery: System/Documentation/Maintenance and Recovery Guide.md
+  support: System/Documentation/AI Support Guide.md            # how any AI answers product questions from the docs
+  support_index: System/Generated/support-index.json           # generated corpus map (aios generate); diagrams live in System/Documentation/Diagrams/
+
+reading_order:
+  human:                            # ordered by depth: Get Started, then Understand It; Reference is read on demand
+    # -- Get Started: the quick, plain path --
+    - START-HERE.md
+    - System/Documentation/Product Overview.md
+    - System/Documentation/Quick Start.md
+    - System/Onboarding/Human Onboarding Guide.md
+    - System/Documentation/Human User Manual.md
+    # -- Understand It: the bridge to the reference layer --
+    - System/Documentation/How the System Works.md
+    # -- Reference (canonical + architecture docs): on demand, see START-HERE "Where authority lives" --
+  ai:                               # EXPERIMENT 1: compact kernel + router (progressive disclosure)
+    - SYSTEM-MANIFEST.yaml
+    - System/Runtime/Runtime Kernel.md
+    - System/Runtime/Task Router.yaml
+    - System/Runtime Profiles/claude-code.yaml   # or the active profile above
+  developer_mode:                   # full stack — loaded when the router demands it
+    - System/Documentation/AI Operator Manual.md
+    - System/Architecture/Portable Vault Profile.md
+    - System/Governance/Change Control and Preflight.md
+    - System/Governance/Privacy and Boundaries.md
+    - System/Operations/operations.yaml
+
+directories:
+  content:
+    - 00 Inbox
+    - 10 Projects
+    - 20 Knowledge
+    - 30 Sources
+    - 40 Outputs
+    - 80 User
+    - 90 Archive
+    - Decisions                 # the routed decisions space (DEC-095) — record-decision writes here
+  system: System
+  generated:                      # runtime-managed state; see DEC-121 before deleting
+    - System/Generated
+    - System/Logs                   # MIXED: ordinary reports are disposable; freshness-log.jsonl is durable history and freshness-ledger.json carries live obligations (DEC-121). Never bulk-delete this directory.
+  runtime_specific:
+    - .obsidian
+
+protected_objects:                # changes prohibited without explicit human instruction
+  - SYSTEM-MANIFEST.yaml
+  - System/Architecture/
+  - System/Governance/
+  - System/Schemas/
+  - System/Agents/                # agent contracts (AGENT.md frontmatter) — an agent may never alter its own
+  - System/Runtime/               # kernel + task router: the runtime's own law
+  - System/Runtime Profiles/      # no runtime may edit its own authority or certifications
+  - System/Adapters/
+  - System/Operations/
+  - System/Tests/results/         # certification records
+  - 80 User/privacy*              # user privacy rules
+
+requirements:
+  python: ">=3.9"
+  python_dependencies:
+    - PyYAML                      # the only third-party dependency (pinned in pyproject.toml)
+  git: optional                   # recommended; zip snapshots are the no-Git fallback
+  cli: python3 System/Scripts/aios.py

@@ -1,0 +1,116 @@
+# Stable Vault Operations — the canonical, runtime-neutral operation contract.
+# Spec §19. The contract is canonical; every transport (Claude-native tools,
+# aios.py CLI, future MCP/HTTP) is an adapter expression of it.
+# Adapter mappings: System/Adapters/<runtime>/operation-mapping.yaml
+#
+# Every operation inherits `defaults`; an operation lists only what differs.
+# (Format simplified 2026-07-10 — same 15 operations, same semantics; the old
+# format repeated the constant fields fifteen times.)
+# kind: read | write | write-staging | system
+# implementation: runtime = executed per adapter procedure; script = aios.py subcommand
+id: op-registry
+schema_version: 1.2.0
+
+defaults:
+  preconditions: [manifest readable, kill switch true for writes]
+  validation: per change-control tier
+  failure: stop, report, leave checkpoint pointer if mid-write
+  audit: change journal entry for all writes
+  idempotent: true
+  tests: "System/Tests/  (fixtures reference operations by name)"
+
+operations:
+  - name: vault.search
+    purpose: Find candidate notes by text, metadata, alias, or ID
+    kind: read
+    risk: none
+    approval: automatic
+    implementation: runtime
+  - name: vault.read
+    purpose: Read a note or file, honoring privacy filters
+    kind: read
+    risk: none
+    approval: automatic
+    implementation: runtime
+  - name: vault.inspect
+    purpose: Report a note's metadata, relationships, and validation state
+    kind: read
+    risk: none
+    approval: automatic
+    implementation: runtime
+  - name: vault.find_canonical
+    purpose: Resolve a topic/entity to its single canonical record (dedupe check)
+    kind: read
+    risk: none
+    approval: automatic
+    implementation: runtime
+  - name: vault.preflight
+    purpose: Run the proportional change preflight for a proposed change
+    kind: read
+    risk: none
+    approval: automatic
+    implementation: runtime
+  - name: vault.propose_change
+    purpose: Produce a reviewable change proposal (diff or draft in staging)
+    kind: write-staging
+    risk: low
+    approval: automatic-with-report
+    implementation: runtime
+  - name: vault.apply_change
+    purpose: Apply a preflighted change at the depth its risk tier allows
+    kind: write
+    risk: tiered
+    approval: per-change-control
+    implementation: runtime
+    idempotent: false
+  - name: vault.checkpoint
+    purpose: Create a recovery point (git commit or zip snapshot; --zip forces a zip too)
+    kind: system
+    risk: low
+    approval: automatic
+    implementation: script:checkpoint
+  - name: vault.rollback
+    purpose: Restore a checkpoint (exact tree; requires an explicit target ref)
+    kind: system
+    risk: high
+    approval: approval-required
+    implementation: script:checkpoint --rollback
+  - name: vault.validate
+    purpose: Run schema, ID, vocabulary, naming, and registry validation
+    kind: read
+    risk: none
+    approval: automatic
+    implementation: script:validate
+  - name: vault.health_check
+    purpose: Composite health report (validation+links+dupes+review-due+inbox)
+    kind: read
+    risk: none
+    approval: automatic
+    implementation: script:health
+  - name: vault.scaffold_component
+    purpose: Create a new component skeleton from templates and register it as draft
+    kind: write
+    risk: medium
+    approval: automatic-with-report
+    implementation: script:scaffold
+    idempotent: false
+  - name: vault.register_component
+    purpose: Activate a component by flipping status in its own file — requires listed tests and a recorded passing result (DEC-024)
+    kind: write
+    risk: medium
+    approval: automatic-with-report
+    implementation: script:scaffold --register
+    idempotent: false
+  - name: vault.migrate
+    purpose: Run a numbered migration (checkpoint, dry-run, apply, validate)
+    kind: write
+    risk: critical
+    approval: approval-required
+    implementation: script:migrate
+    idempotent: false
+  - name: vault.rebuild_generated
+    purpose: Atomically publish generated views and tool-owned skill projections, then CAS freshness state; never bulk-delete mixed System/Logs
+    kind: system
+    risk: low
+    approval: automatic
+    implementation: script:generate

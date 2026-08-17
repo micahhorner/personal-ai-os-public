@@ -1,0 +1,21 @@
+id: result-capability-manage-todo
+component: capability-manage-todo
+version: 0.1.1
+result: pass
+run: 2026-08-09
+declared_automated_tests:
+- System/Tests/scripts/test_core_procedure_contracts.py
+automated_test_command: >-
+  PYTHONPATH=System/Tests/scripts:System/Scripts
+  PYTHONPYCACHEPREFIX=/tmp/w6-pycache python3 -m unittest test_adversary
+  test_backup_evidence test_brokered_retrieval_contract test_commands
+  test_core_procedure_contracts test_decisions test_flat_folders test_freshness
+  test_health_riders test_import test_ingest_triage test_measure test_pack
+  test_pack_trust_boundary test_protected_writes test_recovery_git
+  test_recovery_snapshot test_sync_boundary test_working -v
+automated_test_result: 372 tests passed; 0 failures; 0 errors; 0 skips
+diagnostics: Full strict gate passed 1133 tests with zero ResourceWarning or unraisable diagnostics; one allowlisted case-insensitive-filesystem skip.
+human_testing: not_performed
+external_runtime_certification: not_performed
+runtime_evaluations: not_run
+evidence_scope: Automated component source-contract and deterministic mechanics only; behavioral fixture pass is not claimed.

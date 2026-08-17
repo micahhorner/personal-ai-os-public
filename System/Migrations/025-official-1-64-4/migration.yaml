@@ -1,0 +1,23 @@
+schema_version: 1.1.0
+id: migration-025-official-1-64-4
+version_target: system_version
+source_distribution: personal-ai-os
+source_identity: 5b7c466eadeb65ce772818a73d2e6bb41598a488639a0a1433eda7536b1977b6
+from_version: 1.64.4
+to_version: 1.64.5
+prerequisites: []
+content_selector:
+  all: true
+transform:
+  replace_exact_files:
+  - path: LICENSE.md
+    old_sha256: 56fad99676a39687067146891cdcc88e068bf364bc91531b97aefd904be903c5
+    payload: payloads/LICENSE.payload
+    new_sha256: 56fad99676a39687067146891cdcc88e068bf364bc91531b97aefd904be903c5
+validation:
+- check: vault-validate
+rollback:
+  strategy: exact-checkpoint
+  automatic_on_validation_failure: true
+idempotency_key: migration-025-official-1-64-4-v1
+manifest_hash: c21352da7b7fe666dff922c53df65707c81ad9d5700bde49b486fbdcfdf091d6

@@ -1,0 +1,17 @@
+id: result-capability-manage-packs
+component: capability-manage-packs
+version: 0.1.0
+result: pass
+run: 2026-07-14
+fixture: System/Tests/fixtures/15-addon-install
+summary: >-
+  Passing result for capability-manage-packs v0.1.0 against fixture 15-addon-install.
+  The full lifecycle was proven end-to-end on a sandbox copy of the product master
+  (v1.11.x): a demo-pack (pack-demo, shipping the active capability-demo) was installed
+  from a ZIP dropped in the OS root — placed at Packs/demo/, discovered in place by
+  aios generate (path under Packs/), validate 0 errors, source ZIP removed; then updated
+  v1.0.0 -> v1.1.0 by wholesale folder replacement (exactly one indexed entry, no
+  duplicate, validate 0 errors); then removed leave-no-trace (Packs/ gone, capability
+  de-registered, the non-generated tree byte-identical to pre-install). validate,
+  doc-check, and links all 0 errors and the 78-test unit suite green throughout.
+evidence: All eight fixture pass criteria held.

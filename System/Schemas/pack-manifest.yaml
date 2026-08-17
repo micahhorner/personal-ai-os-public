@@ -1,0 +1,157 @@
+# Pack manifest contract — the shape of a `pack.yaml` inside a pack ZIP.
+#
+# WHY THIS FILE EXISTS
+# Until v1.53.0 the manifest contract lived only as imperative code inside
+# `System/Scripts/cmd/pack.py` plus prose in `System/Documentation/Add-Ons and
+# Packs.md`. Nothing a pack author could read, and nothing a pack could be
+# checked against outside install time. That is why the PMM Engine pack shipped
+# `kind: role` — not in the vocabulary, so its ZIP would have been REJECTED at
+# install — and sat that way for a month with no check objecting. This file is
+# the contract; `aios pack --verify` loads it and gates against it.
+#
+# THIS IS NOT A NOTE CLASS. Read before editing:
+#   * It deliberately carries NO top-level `schema:` key. `validate.load_schemas`
+#     registers any file in this folder that has one as a note class
+#     (`schemas[d["schema"]] = d`), which would invent a phantom `pack-manifest`
+#     record type that no note can ever satisfy, and inflate the note-class
+#     census in `docgen`, `docaudit` and `freshness`. Adding `schema:` here is a
+#     silent, system-wide defect. Don't.
+#   * It also carries no top-level `fields:` or `required:`, for the same
+#     reason at one remove: `doc-audit` unions those two keys across every file
+#     in this folder to count the system's note fields. Everything below is
+#     nested under `pack_manifest:` so no census sees it.
+#
+# Packs are third-party artifacts. Every rule here is enforced as a REPORTED
+# failure, never an exception — see `pack.py` and `System/Tests/scripts/
+# test_pack.py::TestMalformedManifestsReportNeverCrash`.
+
+pack_manifest:
+  contract_version: 1.0.0
+  applies_to: "pack.yaml at the root of a pack ZIP, and Packs/<name>/pack.yaml once installed"
+  enforced_by: "System/Scripts/cmd/pack.py (aios pack --verify)"
+
+  # The document itself must be a YAML mapping. A list, a scalar, an empty file,
+  # invalid YAML, or bytes that are not UTF-8 are all reported, not raised.
+  document:
+    type: mapping
+    encoding: utf-8
+    duplicate_top_level_keys: forbidden   # YAML lets the last key silently win,
+                                          # which can disable a gate clause
+                                          # (`kind:` declared twice). Same guard
+                                          # `validate.load_schemas` applies to
+                                          # the note-class schemas.
+
+  # Absent or wrong-shaped → the gate REJECTS and changes nothing.
+  required_keys: [id, name, version, kind, license, source]
+  # Absent is fine; wrong-shaped is still reported.
+  optional_keys:
+    [summary, min_system_version, depends_on, components, resources, gates, behavior, layout]
+
+  keys:
+    id:
+      type: string
+      pattern: '^pack-[a-z0-9-]+$'
+      note: "The folder name is the id minus the `pack-` prefix: pack-pmm → Packs/pmm/"
+    name:
+      type: string
+      note: "Human-readable; shown in the install plan."
+    version:
+      type: string
+      pattern: '^\d+\.\d+\.\d+$'
+      note: "The pack's own semver, independent of the vault's system_version. Quote it — an unquoted 1.2.0 is fine but an unquoted 2026-07-27 parses as a date."
+    kind:
+      type: string
+      vocabulary: [capability, role-pack, life-skill-pack, governance-kit, starter-bundle]
+    license:
+      type: [string, mapping]
+      string_vocabulary: [0BSD, Apache-2.0, BSD-2-Clause, BSD-3-Clause, CC0-1.0, GPL-2.0-only, GPL-2.0-or-later, GPL-3.0-only, GPL-3.0-or-later, ISC, LGPL-2.1-only, LGPL-2.1-or-later, LGPL-3.0-only, LGPL-3.0-or-later, MIT, MPL-2.0, Unlicense]
+      attached_file:
+        exact_keys: [file, sha256]
+        path: "Canonical relative POSIX path resolved from the pack root"
+        sha256: "Exact lowercase SHA-256 of the one regular ZIP member"
+      note: "Use either one supported SPDX identifier or {file: LICENSE.md, sha256: <exact hash>}. pack-pmm must use the attached form and the approved proprietary-license hash."
+    source:
+      type: string
+      prefix: "https://"
+      note: "Where the pack came from. http, ftp, git@ and bare paths are refused."
+    summary:
+      type: string
+      required: false        # warned, not refused — packs predating this file omit it
+    min_system_version:
+      type: string
+      pattern: '^\d+\.\d+\.\d+$'
+      note: "Accepted at the top level or under depends_on:. depends_on wins if both are present."
+    depends_on:
+      type: mapping
+      keys:
+        core_primitives:
+          type: list-of-strings
+          note: "Component ids that must already exist in the host vault. Resolved against the vault's note ids at verify time."
+        min_system_version: {type: string}
+        runtime: {type: string}
+      note: "Any other key under depends_on: is carried as documentation and not resolved — `packs:` and `vault_files:` are declarative only (see the PMM manifest)."
+    gates:
+      type: [list, mapping, string]
+      note: "The pack's own standing rules, shown verbatim in the install plan. Not machine-interpreted; `behavior:` is accepted as a legacy alias."
+    layout:
+      type: mapping
+      required: false
+      classes: [scaffold, workspace, seed]
+      min_system_version_required: '1.57.0'
+      note: >-
+        DEC-112. Splits the pack folder into vendor-owned and user-owned territory.
+        ABSENT = today's behaviour exactly: everything is scaffold, an update replaces
+        the folder wholesale, an uninstall deletes it. Declaring one changes only the
+        paths named.
+      keys:
+        scaffold:
+          type: list-of-strings
+          note: "Vendor-owned. Replaced on update; deleted on uninstall. A file the user edited is KEPT and the incoming version written beside it as <name>.incoming — never auto-merged."
+        workspace:
+          type: list-of-strings
+          note: "User-owned. Seeded from the ZIP only when the declared path does not yet exist; once it exists nothing beneath it is read, diffed, replaced or deleted. Archived on uninstall, never deleted."
+        seed:
+          type: list-of-strings
+          note: "User-owned, decided per FILE rather than per declared path: written only where that exact file is absent. Archived on uninstall, never deleted."
+      rules:
+        classification: "longest declared prefix wins; an undeclared path is scaffold"
+        one_class_only: "a path declared in two classes is REFUSED — the reading is destructive and must not be guessed"
+        path_rules: "same as path_groups.path_rules — relative, no `..` segments"
+        min_system_version: >-
+          A manifest declaring layout: MUST also declare min_system_version >= 1.57.0.
+          An older core does not understand layout: and would replace the folder wholesale,
+          taking the user's workspace with it; every core has always enforced
+          min_system_version, so the declaration is what stops it installing there.
+          Refused at the gate.
+
+  # ---------------------------------------------------------------------------
+  # PATH GROUPS — what the pack ships, checked to exist inside the ZIP.
+  #
+  # BOTH SHAPES ARE VALID, and both are in the field:
+  #   mapping-of-lists   components: {capabilities: [...], agents: [...]}
+  #   flat list          resources: ["01 Messaging Hub", "README.md"]
+  # `resources:` may sit at the top level (PMM Engine) or nested inside
+  # `components:` (Content Engine). All four combinations are accepted.
+  #
+  # The grouping keys are documentation for the reader: the gate's only question
+  # is "does this path exist in the ZIP", so refusing one shape would break a
+  # shipped pack for no safety gain. Prefer the shape each real pack already
+  # uses — mapping-of-lists for components, a flat list for top-level resources.
+  # ---------------------------------------------------------------------------
+  path_groups:
+    locations: [components, resources, components.resources]
+    accepted_shapes:
+      - "mapping of group-name → list of path strings"
+      - "flat list of path strings"
+      - "a single path string (treated as a one-item list)"
+    refused_shapes:
+      - "a path entry that is not a string (mapping, list, number, null)"
+      - "a group value nested more than one level deep"
+    path_rules:
+      relative: required          # a leading `/` is refused
+      parent_segments: forbidden  # any `..` segment is refused, at the gate,
+                                  # before placement — a ZIP whose members
+                                  # escape Packs/<name>/ is REJECTED whole
+      may_name_a_directory: true  # satisfied by a directory entry OR by any
+                                  # member beneath it — a ZIP need not store
+                                  # explicit directory entries

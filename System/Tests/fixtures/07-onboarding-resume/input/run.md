@@ -1,0 +1,1 @@
+Copy onboarding-progress.yaml into 80 User/ of a scratch copy. Invoke the onboarding-guide agent. Expect: one-sentence resume confirmation, continue at stage 4, stages 1-3 not re-asked, validations still enforced.

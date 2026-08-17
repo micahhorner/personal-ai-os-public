@@ -1,0 +1,54 @@
+# Task Router — intent → what to load. Load ONLY what the matched row names.
+# The kernel is always loaded; everything below is task-triggered.
+# Every load entry is a real vault path; each row lists its full dependency
+# set — a loaded procedure never requires a file its row omits (audit-2 H-01).
+# load_if_present: user-created files a route consults when they exist (e.g.
+# the workstyle map, written at onboarding stage 4). Absent on a fresh seed —
+# skipped silently, never an error. Integrity tests check well-formedness,
+# not existence; System/ files must exist and belong in load instead.
+id: doc-task-router
+schema_version: 1.1.0
+modes:
+  normal:
+    answer-question:        {load: [System/Capabilities/retrieve-context/SKILL.md]}   # only when retrieval is nontrivial
+    find-or-read-notes:     {load: [System/Capabilities/retrieve-context/SKILL.md]}   # orient via System/Generated/index-note.md first, load bodies only as needed (DEC-045)
+    create-note:            {load: [System/Capabilities/safe-write/SKILL.md], load_if_present: [80 User/authoring.md, 80 User/workstyle.md]}   # safe-write step 2 opens the class template. authoring.md is user-owned — a one-line pointer to the user's canonical note-authoring standard (format, depth, citation, counterarguments). Same pattern as voice.md (DEC-036).
+    update-note:            {load: [System/Capabilities/safe-write/SKILL.md], load_if_present: [80 User/authoring.md, 80 User/workstyle.md]}   # an edit is held to the same authoring standard as a creation
+    process-inbox-item:     {load: [System/Capabilities/ingest-and-connect/SKILL.md, System/Capabilities/safe-write/SKILL.md], load_if_present: [80 User/authoring.md, 80 User/workstyle.md]}   # ingest extracts via safe-write, then builds out to the authoring standard (ingest-and-connect 3b)
+    capture-spoken-context: {load: [System/Capabilities/ingest-and-connect/SKILL.md, System/Capabilities/safe-write/SKILL.md]}
+    draft-content:          {load: [], load_if_present: [80 User/voice.md, 80 User/workstyle.md]}   # outward-facing drafting: loads the user's voice standard when one exists. voice.md is user-owned — the rules themselves or a one-line pointer to the user's canonical voice file (DEC-036).
+    compile-task-context:   {load: [System/Capabilities/retrieve-context/SKILL.md]}
+    close-session:          {load: [System/Capabilities/session-handoff/SKILL.md, System/Capabilities/safe-write/SKILL.md], load_if_present: [80 User/handoff.md, 80 User/workstyle.md]}   # substantive sessions only (DEC-085); handoff.md is user-owned — the user's record rules or a pointer to their method's handoff doctrine, same pattern as voice.md (DEC-036). During onboarding, onboarding mode owns resume state — this row does not apply.
+    resume-session:         {load: [System/Capabilities/session-handoff/SKILL.md, System/Capabilities/retrieve-context/SKILL.md], load_if_present: [80 User/handoff.md, 80 User/workstyle.md]}   # the record is canonical over recollection; re-verify its claims against live state before relying (session-handoff resume steps)
+    manage-todo:            {load: [System/Capabilities/manage-todo/SKILL.md], load_if_present: [To-Do.md, 80 User/workstyle.md]}   # "add X to my to-do list", "what's on my list?", mark something done, reprioritize — the to-do file is routed, never remembered; every item carries its context (what · why · blocks · resolving path) and item paths are link-checked on load (DEC-094)
+    start-project:          {load: [System/Capabilities/start-project/SKILL.md, System/Capabilities/safe-write/SKILL.md], load_if_present: [80 User/workstyle.md]}   # "let's start a project", "new project for Y" — folder + schema-valid project note + registration; generic floor only, an installed method pack's project doctrine (plans, handoffs, gates) layers on top (DEC-094)
+    red-team-plan:          {load: [System/Capabilities/adversary/SKILL.md, System/Capabilities/safe-write/SKILL.md], load_if_present: [80 User/workstyle.md]}   # "red-team this", "pressure-test this", "poke holes in this", "what am I missing?" — a hostile read of a plan/spec/scope BEFORE it is built, in fixed sections with a proceed / proceed-with-amendments / redesign verdict (DEC-099). On demand only; it advises, never approves, and it tests soundness, never demand. safe-write is listed because adversary's step 8 files the report through it — the full-dependency-set rule (audit-2 H-01); its omission was caught by the capability's own retrodiction eval. The same capability is loaded by the developer lane as build-extension's High-tier pre-build gate.
+    record-decision:        {load: [System/Capabilities/record-decision/SKILL.md, System/Capabilities/safe-write/SKILL.md], load_if_present: [80 User/workstyle.md]}   # settled choices, approvals, rejections, waivers, scope changes — "let's go with", "approved", "we're not doing X" — one dated record in Decisions/, dated slug id, no claimed numbers; the generated register derives order (DEC-095). Not every preference is a decision: the bar is a choice that closes alternatives or changes scope.
+  maintenance:
+    weekly-pass:            {load: [System/Capabilities/maintain-vault/SKILL.md, System/Agents/steward/AGENT.md, System/Capabilities/ingest-and-connect/SKILL.md, System/Capabilities/safe-write/SKILL.md, System/Capabilities/retrieve-context/SKILL.md]}   # the weekly pass REPORTS the Inbox — counts it, says how old the oldest item is, and offers `inbox-processing`; ingestion runs only on an explicit yes, so `ingest-and-connect` is loaded to be ready for that yes and never to act on it (DEC-101). It extracts via safe-write; steward depends on retrieve-context.
+    review-freshness:       {load: [System/Capabilities/maintain-vault/SKILL.md, System/Capabilities/ingest-and-connect/SKILL.md, System/Capabilities/safe-write/SKILL.md]}   # maintain-vault's procedure also counts the Inbox and offers to process it — it never empties it unasked (DEC-101)
+    recover:                {load: [System/Capabilities/recover/SKILL.md, System/Documentation/Maintenance and Recovery Guide.md]}
+  developer:                # any change to System/, schemas, structure, components
+    _all:
+      load:
+        - System/Documentation/AI Operator Manual.md
+        - System/Architecture/Canonical Architecture Specification.md
+        - System/Architecture/Portable Vault Profile.md
+        - System/Governance/Change Control and Preflight.md
+        - System/Governance/Privacy and Boundaries.md
+        - System/Governance/Active Decisions.md
+        - System/Operations/operations.yaml
+        - System/Capabilities/safe-write/SKILL.md
+        - System/Capabilities/adversary/SKILL.md
+      note: full-stack governance; checkpoint + human approval required. Also load
+        the specific schemas, components, and tests the change touches. The adversary
+        capability is loaded here because every build in this lane is a High-tier
+        change and `build-extension` step 3b owes it a pre-build pass (DEC-099); a
+        skipped gate is recorded in the build's plan, never silent.
+  onboarding:
+    run-or-resume:          {load: [System/Onboarding/Onboarding Specification.md, System/Agents/onboarding-guide/AGENT.md, System/Onboarding/AI Onboarding Procedure.md, System/Capabilities/safe-write/SKILL.md, System/Capabilities/ingest-and-connect/SKILL.md, System/Capabilities/retrieve-context/SKILL.md, System/Capabilities/method-kit/SKILL.md, System/Capabilities/manage-todo/SKILL.md, System/Capabilities/record-decision/SKILL.md], load_if_present: [80 User/workstyle.md]}   # spec wins on any conflict; onboarding writes (safe-write), ingests (stage 6), retrieves (stage 7), and offers the Method Kit (stage 8) via these; from spec 1.8.0 it also offers a first to-do item (stage 4, manage-todo) and writes decision-review amendments to Decisions/ (stage 8, record-decision) — both listed here because a row carries its full dependency set; workstyle map consulted on re-onboarding
+    import-vault:           {load: [System/Capabilities/import-vault/SKILL.md, System/Capabilities/ingest-and-connect/SKILL.md, System/Capabilities/safe-write/SKILL.md], load_if_present: [80 User/workstyle.md]}   # bring an existing vault in; mode decided by the workstyle answers
+fallback:                   # deterministic — exactly one row applies to any unmatched intent
+  no-write-involved: answer-question
+  write-to-existing-note: update-note
+  write-creating-new-note: create-note

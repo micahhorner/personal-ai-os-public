@@ -1,0 +1,47 @@
+{
+  "records": [
+    {
+      "disposition": "reserved",
+      "id": "reservation-1-45-0",
+      "reason": "Reserved for a parallel clarity change as repeatedly recorded in the dated changelog; no 1.45.0 release is asserted.",
+      "version": "1.45.0"
+    },
+    {
+      "disposition": "non-main-release",
+      "id": "non-main-release-1-61-0",
+      "reason": "1.61.0 genuinely existed in branch-only commit 5e0d701 (DEC-116), but the finalized support matrix classifies that line as non-main and unsupported; this records the historical release state without asserting a mainline release or permanently reserving the number.",
+      "version": "1.61.0"
+    },
+    {
+      "disposition": "misplaced-release",
+      "id": "order-exception-foundational-0-1-0",
+      "reason": "0.1.0 is a genuine foundational release whose intact section was inserted between 1.30.0 and 1.29.0; only its physical ordering is excepted.",
+      "target_section_sha256": "1389d0282352a96c7d35cd417f2de7a99b1a22ecc9933ff1f0a0cc33874cca22"
+    },
+    {
+      "disposition": "amendment",
+      "id": "amendment-1-6-documentation-system",
+      "reason": "A rolling 1.6.0 change record retained intact; it is not a second release distinct from the first 1.6.0 section.",
+      "target_section_sha256": "a45b9faaa7ec760e6ca6f91758675f1478945ad722008955f6034276d29ed03d"
+    },
+    {
+      "disposition": "amendment",
+      "id": "amendment-1-6-vocabulary",
+      "reason": "A rolling 1.6.0 change record retained intact; it is not a third release distinct from the first 1.6.0 section.",
+      "target_section_sha256": "2bf1a476225db82fe254ca4512c1b9e09d660c7fe15291a8f57a17c794eeb7db"
+    },
+    {
+      "disposition": "amendment",
+      "id": "amendment-1-6-voice-routing",
+      "reason": "A rolling 1.6.0 change record retained intact; it is not a fourth release distinct from the first 1.6.0 section.",
+      "target_section_sha256": "581951466e46d3cbc495426b42a70196068ff8b203b5f14e3c12e0a0d68b945f"
+    },
+    {
+      "disposition": "amendment",
+      "id": "amendment-1-6-documentation-monitoring",
+      "reason": "A rolling 1.6.0 change record retained intact; it is not a fifth release distinct from the first 1.6.0 section.",
+      "target_section_sha256": "cdf3be6ad9602cf60a8ba46a20c9cb0a2045e05259541bc77124dd3249ac4309"
+    }
+  ],
+  "schema_version": 1
+}

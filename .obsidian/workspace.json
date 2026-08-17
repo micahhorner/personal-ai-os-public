@@ -1,0 +1,70 @@
+{
+ "main": {
+  "id": "main-root",
+  "type": "split",
+  "children": [
+   {
+    "id": "main-tabs",
+    "type": "tabs",
+    "children": [
+     {
+      "id": "main-empty",
+      "type": "leaf",
+      "state": {
+       "type": "empty",
+       "state": {}
+      }
+     }
+    ]
+   }
+  ],
+  "direction": "vertical"
+ },
+ "left": {
+  "id": "left-root",
+  "type": "split",
+  "children": [
+   {
+    "id": "left-tabs",
+    "type": "tabs",
+    "children": [
+     {
+      "id": "left-nn",
+      "type": "leaf",
+      "state": {
+       "type": "notebook-navigator",
+       "state": {}
+      }
+     }
+    ]
+   }
+  ],
+  "direction": "horizontal",
+  "width": 450
+ },
+ "right": {
+  "id": "right-root",
+  "type": "split",
+  "children": [
+   {
+    "id": "right-tabs",
+    "type": "tabs",
+    "children": [
+     {
+      "id": "right-backlink",
+      "type": "leaf",
+      "state": {
+       "type": "backlink",
+       "state": {}
+      }
+     }
+    ]
+   }
+  ],
+  "direction": "horizontal",
+  "width": 300,
+  "collapsed": true
+ },
+ "active": "main-empty",
+ "lastOpenFiles": []
+}

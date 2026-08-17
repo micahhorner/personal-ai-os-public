@@ -1,0 +1,25 @@
+# EXAMPLE ONLY — structurally valid, but sequence 000 is never executable.
+schema_version: 1.1.0
+id: migration-000-example
+version_target: vault_profile_version
+source_distribution: personal-ai-os
+source_identity: "0000000000000000000000000000000000000000000000000000000000000000"
+from_version: 1.0.0
+to_version: 1.1.0
+prerequisites: []
+content_selector:
+  all: true
+transform:
+  replace_exact_files:
+    - path: 90 Archive/migration-example.txt
+      old_sha256: absent
+      payload: payloads/example.txt
+      new_sha256: 531b9225a6fe3d500b65a27e2737e650f4cb3c0150d56d7f11c0cb1fcf590944
+      mode: "0644"
+validation:
+  - check: vault-validate
+rollback:
+  strategy: exact-checkpoint
+  automatic_on_validation_failure: true
+idempotency_key: migration-000-example-v1
+manifest_hash: 298332c58103eb627405326832cc78e091014971157965cd7871804e4fb16a0f

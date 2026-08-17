@@ -1,0 +1,25 @@
+<svg width="100%" viewBox="0 0 680 316" role="img" xmlns="http://www.w3.org/2000/svg">
+<title>Personal AI OS data flow and governance</title>
+<desc>Material flows left to right from Inbox capture through ingest-and-connect into canonical knowledge and out to cited outputs. Every write passes through a governance lane of preflight, tiered apply, journal, and checkpoint.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+<text class="th" x="40" y="28">How knowledge flows: in → through → out</text>
+<g class="c-teal"><rect x="40" y="48" width="132" height="60" rx="10" stroke-width="0.5"/><text class="th" x="106" y="72" text-anchor="middle" dominant-baseline="central">00 Inbox</text><text class="ts" x="106" y="92" text-anchor="middle" dominant-baseline="central">Capture + quarantine</text></g>
+<g class="c-blue"><rect x="196" y="48" width="132" height="60" rx="10" stroke-width="0.5"/><text class="th" x="262" y="72" text-anchor="middle" dominant-baseline="central">Ingest &amp; connect</text><text class="ts" x="262" y="92" text-anchor="middle" dominant-baseline="central">File + link to existing</text></g>
+<g class="c-blue"><rect x="352" y="48" width="132" height="60" rx="10" stroke-width="0.5"/><text class="th" x="418" y="72" text-anchor="middle" dominant-baseline="central">Canonical knowledge</text><text class="ts" x="418" y="92" text-anchor="middle" dominant-baseline="central">Deduped, cited (10–40)</text></g>
+<g class="c-green"><rect x="508" y="48" width="132" height="60" rx="10" stroke-width="0.5"/><text class="th" x="574" y="72" text-anchor="middle" dominant-baseline="central">40 Outputs</text><text class="ts" x="574" y="92" text-anchor="middle" dominant-baseline="central">Cited, with provenance</text></g>
+<line x1="172" y1="78" x2="196" y2="78" class="arr" marker-end="url(#arrow)"/>
+<line x1="328" y1="78" x2="352" y2="78" class="arr" marker-end="url(#arrow)"/>
+<line x1="484" y1="78" x2="508" y2="78" class="arr" marker-end="url(#arrow)"/>
+<text class="ts" x="40" y="132" text-anchor="start">Retrieval pulls the smallest complete context, filtered by privacy and freshness.</text>
+<text class="th" x="40" y="164" text-anchor="start">Every write passes through governance</text>
+<line x1="210" y1="170" x2="210" y2="190" class="arr" marker-end="url(#arrow)"/>
+<g class="c-amber"><rect x="40" y="192" width="600" height="82" rx="14" stroke-width="0.5"/></g>
+<g class="node box"><rect x="56" y="204" width="128" height="54" rx="9" stroke-width="0.5"/><text class="th" x="120" y="224" text-anchor="middle" dominant-baseline="central">Preflight</text><text class="ts" x="120" y="242" text-anchor="middle" dominant-baseline="central">Proportional to risk</text></g>
+<g class="node box"><rect x="202" y="204" width="128" height="54" rx="9" stroke-width="0.5"/><text class="th" x="266" y="224" text-anchor="middle" dominant-baseline="central">Apply</text><text class="ts" x="266" y="242" text-anchor="middle" dominant-baseline="central">Risk-tiered depth</text></g>
+<g class="node box"><rect x="348" y="204" width="128" height="54" rx="9" stroke-width="0.5"/><text class="th" x="412" y="224" text-anchor="middle" dominant-baseline="central">Journal</text><text class="ts" x="412" y="242" text-anchor="middle" dominant-baseline="central">What changed, when</text></g>
+<g class="node box"><rect x="494" y="204" width="128" height="54" rx="9" stroke-width="0.5"/><text class="th" x="558" y="224" text-anchor="middle" dominant-baseline="central">Checkpoint</text><text class="ts" x="558" y="242" text-anchor="middle" dominant-baseline="central">git/zip · rollback</text></g>
+<line x1="184" y1="231" x2="202" y2="231" class="arr" marker-end="url(#arrow)"/>
+<line x1="330" y1="231" x2="348" y2="231" class="arr" marker-end="url(#arrow)"/>
+<line x1="476" y1="231" x2="494" y2="231" class="arr" marker-end="url(#arrow)"/>
+<text class="ts" x="40" y="296" text-anchor="start">Kill switch (one line) halts all AI writes. Any checkpoint restores the exact tree.</text>
+</svg>

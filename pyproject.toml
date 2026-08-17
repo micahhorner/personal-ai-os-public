@@ -1,0 +1,16 @@
+# Personal AI OS — Python configuration for the deterministic utility layer.
+# The only third-party dependency is PyYAML (DEC-006).
+# Setup:   pip install PyYAML>=6.0,<7
+# Run:     python3 System/Scripts/aios.py --help
+
+[project]
+name = "personal-ai-os-utilities"
+version = "1.64.5"
+description = "Deterministic validation, integrity, and maintenance utilities for the Personal AI OS vault"
+requires-python = ">=3.9"
+dependencies = [
+    "PyYAML>=6.0,<7",
+]
+
+[tool.aios.tests]
+command = "python3 -m unittest discover -s System/Tests/scripts -v"

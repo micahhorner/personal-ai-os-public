@@ -1,0 +1,27 @@
+<svg width="100%" viewBox="0 0 680 366" role="img" xmlns="http://www.w3.org/2000/svg">
+<title>Personal AI OS — the 15 stable operations by kind and approval</title>
+<desc>Fifteen operations grouped into four kinds — read, write-staging, write, and system — each colored by approval mode: automatic (green), automatic-with-report or tiered (amber), or human approval required (red).</desc>
+<text class="th" x="40" y="28">The 15 stable operations — by kind and approval</text>
+<text class="ts" x="110" y="52" text-anchor="middle">READ · 7</text>
+<text class="ts" x="266" y="52" text-anchor="middle">WRITE-STAGING · 1</text>
+<text class="ts" x="422" y="52" text-anchor="middle">WRITE · 4</text>
+<text class="ts" x="578" y="52" text-anchor="middle">SYSTEM · 3</text>
+<g class="c-green"><rect x="40" y="64" width="140" height="30" rx="6" stroke-width="0.5"/><text class="ts" x="110" y="79" text-anchor="middle" dominant-baseline="central">search</text></g>
+<g class="c-green"><rect x="40" y="102" width="140" height="30" rx="6" stroke-width="0.5"/><text class="ts" x="110" y="117" text-anchor="middle" dominant-baseline="central">read</text></g>
+<g class="c-green"><rect x="40" y="140" width="140" height="30" rx="6" stroke-width="0.5"/><text class="ts" x="110" y="155" text-anchor="middle" dominant-baseline="central">inspect</text></g>
+<g class="c-green"><rect x="40" y="178" width="140" height="30" rx="6" stroke-width="0.5"/><text class="ts" x="110" y="193" text-anchor="middle" dominant-baseline="central">find_canonical</text></g>
+<g class="c-green"><rect x="40" y="216" width="140" height="30" rx="6" stroke-width="0.5"/><text class="ts" x="110" y="231" text-anchor="middle" dominant-baseline="central">preflight</text></g>
+<g class="c-green"><rect x="40" y="254" width="140" height="30" rx="6" stroke-width="0.5"/><text class="ts" x="110" y="269" text-anchor="middle" dominant-baseline="central">validate</text></g>
+<g class="c-green"><rect x="40" y="292" width="140" height="30" rx="6" stroke-width="0.5"/><text class="ts" x="110" y="307" text-anchor="middle" dominant-baseline="central">health_check</text></g>
+<g class="c-amber"><rect x="196" y="64" width="140" height="30" rx="6" stroke-width="0.5"/><text class="ts" x="266" y="79" text-anchor="middle" dominant-baseline="central">propose_change</text></g>
+<g class="c-amber"><rect x="352" y="64" width="140" height="30" rx="6" stroke-width="0.5"/><text class="ts" x="422" y="79" text-anchor="middle" dominant-baseline="central">apply_change</text></g>
+<g class="c-amber"><rect x="352" y="102" width="140" height="30" rx="6" stroke-width="0.5"/><text class="ts" x="422" y="117" text-anchor="middle" dominant-baseline="central">scaffold_component</text></g>
+<g class="c-amber"><rect x="352" y="140" width="140" height="30" rx="6" stroke-width="0.5"/><text class="ts" x="422" y="155" text-anchor="middle" dominant-baseline="central">register_component</text></g>
+<g class="c-red"><rect x="352" y="178" width="140" height="30" rx="6" stroke-width="0.5"/><text class="ts" x="422" y="193" text-anchor="middle" dominant-baseline="central">migrate</text></g>
+<g class="c-green"><rect x="508" y="64" width="140" height="30" rx="6" stroke-width="0.5"/><text class="ts" x="578" y="79" text-anchor="middle" dominant-baseline="central">checkpoint</text></g>
+<g class="c-red"><rect x="508" y="102" width="140" height="30" rx="6" stroke-width="0.5"/><text class="ts" x="578" y="117" text-anchor="middle" dominant-baseline="central">rollback</text></g>
+<g class="c-green"><rect x="508" y="140" width="140" height="30" rx="6" stroke-width="0.5"/><text class="ts" x="578" y="155" text-anchor="middle" dominant-baseline="central">rebuild_generated</text></g>
+<g class="c-green"><rect x="40" y="332" width="14" height="14" rx="3"/></g><text class="ts" x="60" y="343" text-anchor="start">automatic</text>
+<g class="c-amber"><rect x="150" y="332" width="14" height="14" rx="3"/></g><text class="ts" x="170" y="343" text-anchor="start">automatic + report / risk-tiered</text>
+<g class="c-red"><rect x="410" y="332" width="14" height="14" rx="3"/></g><text class="ts" x="430" y="343" text-anchor="start">human approval required</text>
+</svg>
